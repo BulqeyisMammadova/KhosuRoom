@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace KhosuRoom.DataAccess.Migrations
 {
     [DbContext(typeof(AppDBContext))]
-    [Migration("20260212142135_ChangeBaseAutitable")]
-    partial class ChangeBaseAutitable
+    [Migration("20260212220028_CreateDataBase")]
+    partial class CreateDataBase
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -160,9 +160,6 @@ namespace KhosuRoom.DataAccess.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("AppUserId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<Guid>("GroupId")
                         .HasColumnType("uniqueidentifier");
 
@@ -173,8 +170,6 @@ namespace KhosuRoom.DataAccess.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("AppUserId");
 
                     b.HasIndex("GroupId");
 
@@ -317,10 +312,6 @@ namespace KhosuRoom.DataAccess.Migrations
 
             modelBuilder.Entity("KhosuRoom.Core.Entities.GroupMember", b =>
                 {
-                    b.HasOne("KhosuRoom.Core.Entities.AppUser", null)
-                        .WithMany("GroupMembers")
-                        .HasForeignKey("AppUserId");
-
                     b.HasOne("KhosuRoom.Core.Entities.Group", "Group")
                         .WithMany("Members")
                         .HasForeignKey("GroupId")
@@ -328,7 +319,7 @@ namespace KhosuRoom.DataAccess.Migrations
                         .IsRequired();
 
                     b.HasOne("KhosuRoom.Core.Entities.AppUser", "User")
-                        .WithMany()
+                        .WithMany("GroupMembers")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();

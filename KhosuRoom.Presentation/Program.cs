@@ -1,4 +1,5 @@
 using KhosuRoom.Business.ServiceRegistrations;
+using KhosuRoom.DataAccess.Abstractions;
 using KhosuRoom.DataAccess.ServiceRegistartions;
 using KhosuRoom.Presentation.Middlewares;
 
@@ -22,6 +23,11 @@ builder.Services.AddDataAccessServices(builder.Configuration);
 builder.Services.AddBusinessServices();
 var app = builder.Build();
 
+var scope = app.Services.CreateScope();
+var contextInitalizer = scope.ServiceProvider.GetRequiredService<IContextInitalizer>();
+
+await contextInitalizer.InitDatabaseAsync();
+
 app.UseMiddleware<GlobalExceptionnHandler>();
 app.UseCors("MyPolicy");
 // Configure the HTTP request pipeline.
@@ -35,4 +41,4 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-app.Run();
+await app.RunAsync();

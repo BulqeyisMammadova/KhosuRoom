@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("KhosuRoom.DataAccess")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0047ad62b2ce88d6723b933558b85dcb6d3ed76c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+246b6f7df5656662c852dc0866aeec31f867d67f")]
 [assembly: System.Reflection.AssemblyProductAttribute("KhosuRoom.DataAccess")]
 [assembly: System.Reflection.AssemblyTitleAttribute("KhosuRoom.DataAccess")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

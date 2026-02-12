@@ -3,12 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\Balqeyis\\Desktop\\FinalProject\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{DC7E49C2-083B-4060-8B18-C1A4068FAD69}|KhosuRoom.Business\\KhosuRoom.Business.csproj|c:\\users\\balqeyis\\desktop\\finalproject\\khosuroom.business\\validators\\groupvalidators\\groupcreatedtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DC7E49C2-083B-4060-8B18-C1A4068FAD69}|KhosuRoom.Business\\KhosuRoom.Business.csproj|solutionrelative:khosuroom.business\\validators\\groupvalidators\\groupcreatedtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C2B9B4EF-3BB5-4735-BE06-737BE11B6B2C}|KhosuRoom.DataAccess\\KhosuRoom.DataAccess.csproj|c:\\users\\balqeyis\\desktop\\finalproject\\khosuroom.dataaccess\\datainitalizers\\dbcontextinitalizer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C2B9B4EF-3BB5-4735-BE06-737BE11B6B2C}|KhosuRoom.DataAccess\\KhosuRoom.DataAccess.csproj|solutionrelative:khosuroom.dataaccess\\datainitalizers\\dbcontextinitalizer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DC7E49C2-083B-4060-8B18-C1A4068FAD69}|KhosuRoom.Business\\KhosuRoom.Business.csproj|c:\\users\\balqeyis\\desktop\\finalproject\\khosuroom.business\\dtos\\groupdtos\\groupcreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DC7E49C2-083B-4060-8B18-C1A4068FAD69}|KhosuRoom.Business\\KhosuRoom.Business.csproj|solutionrelative:khosuroom.business\\dtos\\groupdtos\\groupcreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{FE5BCC49-3F55-440B-A0D3-571483188476}|KhosuRoom.Core\\KhosuRoom.Core.csproj|c:\\users\\balqeyis\\desktop\\finalproject\\khosuroom.core\\entities\\appuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FE5BCC49-3F55-440B-A0D3-571483188476}|KhosuRoom.Core\\KhosuRoom.Core.csproj|solutionrelative:khosuroom.core\\entities\\appuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE5BCC49-3F55-440B-A0D3-571483188476}|KhosuRoom.Core\\KhosuRoom.Core.csproj|c:\\users\\balqeyis\\desktop\\finalproject\\khosuroom.core\\entities\\groupmember.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FE5BCC49-3F55-440B-A0D3-571483188476}|KhosuRoom.Core\\KhosuRoom.Core.csproj|solutionrelative:khosuroom.core\\entities\\groupmember.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C2B9B4EF-3BB5-4735-BE06-737BE11B6B2C}|KhosuRoom.DataAccess\\KhosuRoom.DataAccess.csproj|c:\\users\\balqeyis\\desktop\\finalproject\\khosuroom.dataaccess\\configurations\\groupmemberconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C2B9B4EF-3BB5-4735-BE06-737BE11B6B2C}|KhosuRoom.DataAccess\\KhosuRoom.DataAccess.csproj|solutionrelative:khosuroom.dataaccess\\configurations\\groupmemberconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Balqeyis\\Desktop\\FinalProject\\KhosuRoom.DataAccess\\Migrations\\20260212220028_CreateDataBase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:KhosuRoom.DataAccess\\Migrations\\20260212220028_CreateDataBase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DC7E49C2-083B-4060-8B18-C1A4068FAD69}|KhosuRoom.Business\\KhosuRoom.Business.csproj|c:\\users\\balqeyis\\desktop\\finalproject\\khosuroom.business\\services\\implementations\\groupservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -19,12 +31,32 @@
       "RelativeMoniker": "D:0:0:{DC7E49C2-083B-4060-8B18-C1A4068FAD69}|KhosuRoom.Business\\KhosuRoom.Business.csproj|solutionrelative:khosuroom.business\\profiles\\groupprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DC7E49C2-083B-4060-8B18-C1A4068FAD69}|KhosuRoom.Business\\KhosuRoom.Business.csproj|c:\\users\\balqeyis\\desktop\\finalproject\\khosuroom.business\\serviceregistrations\\businessserviceregistration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DC7E49C2-083B-4060-8B18-C1A4068FAD69}|KhosuRoom.Business\\KhosuRoom.Business.csproj|solutionrelative:khosuroom.business\\serviceregistrations\\businessserviceregistration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Balqeyis\\Desktop\\FinalProject\\KhosuRoom.DataAccess\\Migrations\\20260212215352_UpdateDataBase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:KhosuRoom.DataAccess\\Migrations\\20260212215352_UpdateDataBase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DF052A11-961E-456A-87B3-00B501EC8C3A}|KhosuRoom.Presentation\\KhosuRoom.Presentation.csproj|c:\\users\\balqeyis\\desktop\\finalproject\\khosuroom.presentation\\controllers\\groupscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DF052A11-961E-456A-87B3-00B501EC8C3A}|KhosuRoom.Presentation\\KhosuRoom.Presentation.csproj|solutionrelative:khosuroom.presentation\\controllers\\groupscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Balqeyis\\Desktop\\FinalProject\\KhosuRoom.DataAccess\\Migrations\\20260212215128_CreateDataBase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:KhosuRoom.DataAccess\\Migrations\\20260212215128_CreateDataBase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DF052A11-961E-456A-87B3-00B501EC8C3A}|KhosuRoom.Presentation\\KhosuRoom.Presentation.csproj|c:\\users\\balqeyis\\desktop\\finalproject\\khosuroom.presentation\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{DF052A11-961E-456A-87B3-00B501EC8C3A}|KhosuRoom.Presentation\\KhosuRoom.Presentation.csproj|solutionrelative:khosuroom.presentation\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Balqeyis\\Desktop\\FinalProject\\KhosuRoom.DataAccess\\Migrations\\20260212214244_CreateDataBaseNew.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:KhosuRoom.DataAccess\\Migrations\\20260212214244_CreateDataBaseNew.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C2B9B4EF-3BB5-4735-BE06-737BE11B6B2C}|KhosuRoom.DataAccess\\KhosuRoom.DataAccess.csproj|c:\\users\\balqeyis\\desktop\\finalproject\\khosuroom.dataaccess\\serviceregistartions\\dataaccessregistration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C2B9B4EF-3BB5-4735-BE06-737BE11B6B2C}|KhosuRoom.DataAccess\\KhosuRoom.DataAccess.csproj|solutionrelative:khosuroom.dataaccess\\serviceregistartions\\dataaccessregistration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C2B9B4EF-3BB5-4735-BE06-737BE11B6B2C}|KhosuRoom.DataAccess\\KhosuRoom.DataAccess.csproj|c:\\users\\balqeyis\\desktop\\finalproject\\khosuroom.dataaccess\\abstractions\\icontextinitalizer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C2B9B4EF-3BB5-4735-BE06-737BE11B6B2C}|KhosuRoom.DataAccess\\KhosuRoom.DataAccess.csproj|solutionrelative:khosuroom.dataaccess\\abstractions\\icontextinitalizer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DF052A11-961E-456A-87B3-00B501EC8C3A}|KhosuRoom.Presentation\\KhosuRoom.Presentation.csproj|c:\\users\\balqeyis\\desktop\\finalproject\\khosuroom.presentation\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DF052A11-961E-456A-87B3-00B501EC8C3A}|KhosuRoom.Presentation\\KhosuRoom.Presentation.csproj|solutionrelative:khosuroom.presentation\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -53,82 +85,186 @@
               "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "GroupsController.cs",
-              "DocumentMoniker": "C:\\Users\\Balqeyis\\Desktop\\FinalProject\\KhosuRoom.Presentation\\Controllers\\GroupsController.cs",
-              "RelativeDocumentMoniker": "KhosuRoom.Presentation\\Controllers\\GroupsController.cs",
-              "ToolTip": "C:\\Users\\Balqeyis\\Desktop\\FinalProject\\KhosuRoom.Presentation\\Controllers\\GroupsController.cs",
-              "RelativeToolTip": "KhosuRoom.Presentation\\Controllers\\GroupsController.cs",
-              "ViewState": "AgIAACAAAAAAAAAAAAAwwEAAAAAqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-12T19:32:50.209Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "BusinessServiceRegistration.cs",
-              "DocumentMoniker": "C:\\Users\\Balqeyis\\Desktop\\FinalProject\\KhosuRoom.Business\\ServiceRegistrations\\BusinessServiceRegistration.cs",
-              "RelativeDocumentMoniker": "KhosuRoom.Business\\ServiceRegistrations\\BusinessServiceRegistration.cs",
-              "ToolTip": "C:\\Users\\Balqeyis\\Desktop\\FinalProject\\KhosuRoom.Business\\ServiceRegistrations\\BusinessServiceRegistration.cs",
-              "RelativeToolTip": "KhosuRoom.Business\\ServiceRegistrations\\BusinessServiceRegistration.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAA1AAAAAAAAAA==",
+              "Title": "20260212220028_CreateDataBase.cs",
+              "DocumentMoniker": "C:\\Users\\Balqeyis\\Desktop\\FinalProject\\KhosuRoom.DataAccess\\Migrations\\20260212220028_CreateDataBase.cs",
+              "RelativeDocumentMoniker": "KhosuRoom.DataAccess\\Migrations\\20260212220028_CreateDataBase.cs",
+              "ToolTip": "C:\\Users\\Balqeyis\\Desktop\\FinalProject\\KhosuRoom.DataAccess\\Migrations\\20260212220028_CreateDataBase.cs",
+              "RelativeToolTip": "KhosuRoom.DataAccess\\Migrations\\20260212220028_CreateDataBase.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-12T19:28:27.61Z",
+              "WhenOpened": "2026-02-12T22:00:28.604Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "GroupProfile.cs",
-              "DocumentMoniker": "C:\\Users\\Balqeyis\\Desktop\\FinalProject\\KhosuRoom.Business\\Profiles\\GroupProfile.cs",
-              "RelativeDocumentMoniker": "KhosuRoom.Business\\Profiles\\GroupProfile.cs",
-              "ToolTip": "C:\\Users\\Balqeyis\\Desktop\\FinalProject\\KhosuRoom.Business\\Profiles\\GroupProfile.cs",
-              "RelativeToolTip": "KhosuRoom.Business\\Profiles\\GroupProfile.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "Title": "GroupMemberConfiguration.cs",
+              "DocumentMoniker": "C:\\Users\\Balqeyis\\Desktop\\FinalProject\\KhosuRoom.DataAccess\\Configurations\\GroupMemberConfiguration.cs",
+              "RelativeDocumentMoniker": "KhosuRoom.DataAccess\\Configurations\\GroupMemberConfiguration.cs",
+              "ToolTip": "C:\\Users\\Balqeyis\\Desktop\\FinalProject\\KhosuRoom.DataAccess\\Configurations\\GroupMemberConfiguration.cs",
+              "RelativeToolTip": "KhosuRoom.DataAccess\\Configurations\\GroupMemberConfiguration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-12T19:27:12.122Z",
+              "WhenOpened": "2026-02-12T21:50:33.904Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "GroupService.cs",
-              "DocumentMoniker": "C:\\Users\\Balqeyis\\Desktop\\FinalProject\\KhosuRoom.Business\\Services\\Implementations\\GroupService.cs",
-              "RelativeDocumentMoniker": "KhosuRoom.Business\\Services\\Implementations\\GroupService.cs",
-              "ToolTip": "C:\\Users\\Balqeyis\\Desktop\\FinalProject\\KhosuRoom.Business\\Services\\Implementations\\GroupService.cs",
-              "RelativeToolTip": "KhosuRoom.Business\\Services\\Implementations\\GroupService.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAQwBwAAAAsAAAAAAAAAA==",
+              "Title": "GroupMember.cs",
+              "DocumentMoniker": "C:\\Users\\Balqeyis\\Desktop\\FinalProject\\KhosuRoom.Core\\Entities\\GroupMember.cs",
+              "RelativeDocumentMoniker": "KhosuRoom.Core\\Entities\\GroupMember.cs",
+              "ToolTip": "C:\\Users\\Balqeyis\\Desktop\\FinalProject\\KhosuRoom.Core\\Entities\\GroupMember.cs",
+              "RelativeToolTip": "KhosuRoom.Core\\Entities\\GroupMember.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-12T19:24:53.332Z",
+              "WhenOpened": "2026-02-12T21:44:14.475Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "GroupCreateDto.cs",
-              "DocumentMoniker": "C:\\Users\\Balqeyis\\Desktop\\FinalProject\\KhosuRoom.Business\\Dtos\\GroupDtos\\GroupCreateDto.cs",
-              "RelativeDocumentMoniker": "KhosuRoom.Business\\Dtos\\GroupDtos\\GroupCreateDto.cs",
-              "ToolTip": "C:\\Users\\Balqeyis\\Desktop\\FinalProject\\KhosuRoom.Business\\Dtos\\GroupDtos\\GroupCreateDto.cs",
-              "RelativeToolTip": "KhosuRoom.Business\\Dtos\\GroupDtos\\GroupCreateDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Title": "AppUser.cs",
+              "DocumentMoniker": "C:\\Users\\Balqeyis\\Desktop\\FinalProject\\KhosuRoom.Core\\Entities\\AppUser.cs",
+              "RelativeDocumentMoniker": "KhosuRoom.Core\\Entities\\AppUser.cs",
+              "ToolTip": "C:\\Users\\Balqeyis\\Desktop\\FinalProject\\KhosuRoom.Core\\Entities\\AppUser.cs",
+              "RelativeToolTip": "KhosuRoom.Core\\Entities\\AppUser.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-12T19:24:34.236Z",
+              "WhenOpened": "2026-02-12T21:29:31.768Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "GroupCreateDtoValidator.cs",
-              "DocumentMoniker": "C:\\Users\\Balqeyis\\Desktop\\FinalProject\\KhosuRoom.Business\\Validators\\GroupValidators\\GroupCreateDtoValidator.cs",
-              "RelativeDocumentMoniker": "KhosuRoom.Business\\Validators\\GroupValidators\\GroupCreateDtoValidator.cs",
-              "ToolTip": "C:\\Users\\Balqeyis\\Desktop\\FinalProject\\KhosuRoom.Business\\Validators\\GroupValidators\\GroupCreateDtoValidator.cs*",
-              "RelativeToolTip": "KhosuRoom.Business\\Validators\\GroupValidators\\GroupCreateDtoValidator.cs*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Title": "DbContextInitalizer.cs",
+              "DocumentMoniker": "C:\\Users\\Balqeyis\\Desktop\\FinalProject\\KhosuRoom.DataAccess\\DataInitalizers\\DbContextInitalizer.cs",
+              "RelativeDocumentMoniker": "KhosuRoom.DataAccess\\DataInitalizers\\DbContextInitalizer.cs",
+              "ToolTip": "C:\\Users\\Balqeyis\\Desktop\\FinalProject\\KhosuRoom.DataAccess\\DataInitalizers\\DbContextInitalizer.cs*",
+              "RelativeToolTip": "KhosuRoom.DataAccess\\DataInitalizers\\DbContextInitalizer.cs*",
+              "ViewState": "AgIAABwAAAAAAAAAAAAqwCYAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-12T19:18:47.548Z",
+              "WhenOpened": "2026-02-12T21:30:56.718Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "20260212215352_UpdateDataBase.cs",
+              "DocumentMoniker": "C:\\Users\\Balqeyis\\Desktop\\FinalProject\\KhosuRoom.DataAccess\\Migrations\\20260212215352_UpdateDataBase.cs",
+              "RelativeDocumentMoniker": "KhosuRoom.DataAccess\\Migrations\\20260212215352_UpdateDataBase.cs",
+              "ToolTip": "C:\\Users\\Balqeyis\\Desktop\\FinalProject\\KhosuRoom.DataAccess\\Migrations\\20260212215352_UpdateDataBase.cs",
+              "RelativeToolTip": "KhosuRoom.DataAccess\\Migrations\\20260212215352_UpdateDataBase.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-12T21:53:52.839Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "GroupProfile.cs",
+              "DocumentMoniker": "C:\\Users\\Balqeyis\\Desktop\\FinalProject\\KhosuRoom.Business\\Profiles\\GroupProfile.cs",
+              "RelativeDocumentMoniker": "KhosuRoom.Business\\Profiles\\GroupProfile.cs",
+              "ToolTip": "C:\\Users\\Balqeyis\\Desktop\\FinalProject\\KhosuRoom.Business\\Profiles\\GroupProfile.cs",
+              "RelativeToolTip": "KhosuRoom.Business\\Profiles\\GroupProfile.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAABCAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-12T21:51:02.702Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "GroupService.cs",
+              "DocumentMoniker": "C:\\Users\\Balqeyis\\Desktop\\FinalProject\\KhosuRoom.Business\\Services\\Implementations\\GroupService.cs",
+              "RelativeDocumentMoniker": "KhosuRoom.Business\\Services\\Implementations\\GroupService.cs",
+              "ToolTip": "C:\\Users\\Balqeyis\\Desktop\\FinalProject\\KhosuRoom.Business\\Services\\Implementations\\GroupService.cs",
+              "RelativeToolTip": "KhosuRoom.Business\\Services\\Implementations\\GroupService.cs",
+              "ViewState": "AgIAACYAAAAAAAAAAAAqwDwAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-12T21:51:13.323Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "20260212215128_CreateDataBase.cs",
+              "DocumentMoniker": "C:\\Users\\Balqeyis\\Desktop\\FinalProject\\KhosuRoom.DataAccess\\Migrations\\20260212215128_CreateDataBase.cs",
+              "RelativeDocumentMoniker": "KhosuRoom.DataAccess\\Migrations\\20260212215128_CreateDataBase.cs",
+              "ToolTip": "C:\\Users\\Balqeyis\\Desktop\\FinalProject\\KhosuRoom.DataAccess\\Migrations\\20260212215128_CreateDataBase.cs",
+              "RelativeToolTip": "KhosuRoom.DataAccess\\Migrations\\20260212215128_CreateDataBase.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-12T21:51:28.775Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "20260212214244_CreateDataBaseNew.cs",
+              "DocumentMoniker": "C:\\Users\\Balqeyis\\Desktop\\FinalProject\\KhosuRoom.DataAccess\\Migrations\\20260212214244_CreateDataBaseNew.cs",
+              "RelativeDocumentMoniker": "KhosuRoom.DataAccess\\Migrations\\20260212214244_CreateDataBaseNew.cs",
+              "ToolTip": "C:\\Users\\Balqeyis\\Desktop\\FinalProject\\KhosuRoom.DataAccess\\Migrations\\20260212214244_CreateDataBaseNew.cs",
+              "RelativeToolTip": "KhosuRoom.DataAccess\\Migrations\\20260212214244_CreateDataBaseNew.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-12T21:42:44.221Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "appsettings.Development.json",
+              "DocumentMoniker": "C:\\Users\\Balqeyis\\Desktop\\FinalProject\\KhosuRoom.Presentation\\appsettings.Development.json",
+              "RelativeDocumentMoniker": "KhosuRoom.Presentation\\appsettings.Development.json",
+              "ToolTip": "C:\\Users\\Balqeyis\\Desktop\\FinalProject\\KhosuRoom.Presentation\\appsettings.Development.json",
+              "RelativeToolTip": "KhosuRoom.Presentation\\appsettings.Development.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-02-12T21:36:36.988Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Balqeyis\\Desktop\\FinalProject\\KhosuRoom.Presentation\\Program.cs",
+              "RelativeDocumentMoniker": "KhosuRoom.Presentation\\Program.cs",
+              "ToolTip": "C:\\Users\\Balqeyis\\Desktop\\FinalProject\\KhosuRoom.Presentation\\Program.cs",
+              "RelativeToolTip": "KhosuRoom.Presentation\\Program.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAABkAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-12T21:20:15.257Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "DataAccessRegistration.cs",
+              "DocumentMoniker": "C:\\Users\\Balqeyis\\Desktop\\FinalProject\\KhosuRoom.DataAccess\\ServiceRegistartions\\DataAccessRegistration.cs",
+              "RelativeDocumentMoniker": "KhosuRoom.DataAccess\\ServiceRegistartions\\DataAccessRegistration.cs",
+              "ToolTip": "C:\\Users\\Balqeyis\\Desktop\\FinalProject\\KhosuRoom.DataAccess\\ServiceRegistartions\\DataAccessRegistration.cs",
+              "RelativeToolTip": "KhosuRoom.DataAccess\\ServiceRegistartions\\DataAccessRegistration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-12T21:19:35.891Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "IContextInitalizer.cs",
+              "DocumentMoniker": "C:\\Users\\Balqeyis\\Desktop\\FinalProject\\KhosuRoom.DataAccess\\Abstractions\\IContextInitalizer.cs",
+              "RelativeDocumentMoniker": "KhosuRoom.DataAccess\\Abstractions\\IContextInitalizer.cs",
+              "ToolTip": "C:\\Users\\Balqeyis\\Desktop\\FinalProject\\KhosuRoom.DataAccess\\Abstractions\\IContextInitalizer.cs",
+              "RelativeToolTip": "KhosuRoom.DataAccess\\Abstractions\\IContextInitalizer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-12T21:18:44.946Z"
             }
           ]
         }

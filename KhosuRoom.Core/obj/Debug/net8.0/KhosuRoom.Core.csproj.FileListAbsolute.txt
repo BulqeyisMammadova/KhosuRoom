@@ -1,0 +1,13 @@
+C:\Users\Balqeyis\Desktop\FinalProject\KhosuRoom.Core\bin\Debug\net8.0\KhosuRoom.Core.deps.json
+C:\Users\Balqeyis\Desktop\FinalProject\KhosuRoom.Core\bin\Debug\net8.0\KhosuRoom.Core.dll
+C:\Users\Balqeyis\Desktop\FinalProject\KhosuRoom.Core\bin\Debug\net8.0\KhosuRoom.Core.pdb
+C:\Users\Balqeyis\Desktop\FinalProject\KhosuRoom.Core\obj\Debug\net8.0\KhosuRoom.Core.csproj.AssemblyReference.cache
+C:\Users\Balqeyis\Desktop\FinalProject\KhosuRoom.Core\obj\Debug\net8.0\KhosuRoom.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Balqeyis\Desktop\FinalProject\KhosuRoom.Core\obj\Debug\net8.0\KhosuRoom.Core.AssemblyInfoInputs.cache
+C:\Users\Balqeyis\Desktop\FinalProject\KhosuRoom.Core\obj\Debug\net8.0\KhosuRoom.Core.AssemblyInfo.cs
+C:\Users\Balqeyis\Desktop\FinalProject\KhosuRoom.Core\obj\Debug\net8.0\KhosuRoom.Core.csproj.CoreCompileInputs.cache
+C:\Users\Balqeyis\Desktop\FinalProject\KhosuRoom.Core\obj\Debug\net8.0\KhosuRoom.Core.sourcelink.json
+C:\Users\Balqeyis\Desktop\FinalProject\KhosuRoom.Core\obj\Debug\net8.0\KhosuRoom.Core.dll
+C:\Users\Balqeyis\Desktop\FinalProject\KhosuRoom.Core\obj\Debug\net8.0\refint\KhosuRoom.Core.dll
+C:\Users\Balqeyis\Desktop\FinalProject\KhosuRoom.Core\obj\Debug\net8.0\KhosuRoom.Core.pdb
+C:\Users\Balqeyis\Desktop\FinalProject\KhosuRoom.Core\obj\Debug\net8.0\ref\KhosuRoom.Core.dll

@@ -1,0 +1,104 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Balqeyis\\Desktop\\FinalProject\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{DC7E49C2-083B-4060-8B18-C1A4068FAD69}|KhosuRoom.Business\\KhosuRoom.Business.csproj|c:\\users\\balqeyis\\desktop\\finalproject\\khosuroom.business\\services\\implementations\\groupservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DC7E49C2-083B-4060-8B18-C1A4068FAD69}|KhosuRoom.Business\\KhosuRoom.Business.csproj|solutionrelative:khosuroom.business\\services\\implementations\\groupservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C2B9B4EF-3BB5-4735-BE06-737BE11B6B2C}|KhosuRoom.DataAccess\\KhosuRoom.DataAccess.csproj|c:\\users\\balqeyis\\desktop\\finalproject\\khosuroom.dataaccess\\interceptors\\baseauditableinterceptor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C2B9B4EF-3BB5-4735-BE06-737BE11B6B2C}|KhosuRoom.DataAccess\\KhosuRoom.DataAccess.csproj|solutionrelative:khosuroom.dataaccess\\interceptors\\baseauditableinterceptor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C2B9B4EF-3BB5-4735-BE06-737BE11B6B2C}|KhosuRoom.DataAccess\\KhosuRoom.DataAccess.csproj|c:\\users\\balqeyis\\desktop\\finalproject\\khosuroom.dataaccess\\serviceregistartions\\dataaccessregistration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C2B9B4EF-3BB5-4735-BE06-737BE11B6B2C}|KhosuRoom.DataAccess\\KhosuRoom.DataAccess.csproj|solutionrelative:khosuroom.dataaccess\\serviceregistartions\\dataaccessregistration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DF052A11-961E-456A-87B3-00B501EC8C3A}|KhosuRoom.Presentation\\KhosuRoom.Presentation.csproj|c:\\users\\balqeyis\\desktop\\finalproject\\khosuroom.presentation\\controllers\\appuserscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DF052A11-961E-456A-87B3-00B501EC8C3A}|KhosuRoom.Presentation\\KhosuRoom.Presentation.csproj|solutionrelative:khosuroom.presentation\\controllers\\appuserscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "GroupService.cs",
+              "DocumentMoniker": "C:\\Users\\Balqeyis\\Desktop\\FinalProject\\KhosuRoom.Business\\Services\\Implementations\\GroupService.cs",
+              "RelativeDocumentMoniker": "KhosuRoom.Business\\Services\\Implementations\\GroupService.cs",
+              "ToolTip": "C:\\Users\\Balqeyis\\Desktop\\FinalProject\\KhosuRoom.Business\\Services\\Implementations\\GroupService.cs",
+              "RelativeToolTip": "KhosuRoom.Business\\Services\\Implementations\\GroupService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAABFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-12T14:54:16.003Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "BaseAuditableInterceptor.cs",
+              "DocumentMoniker": "C:\\Users\\Balqeyis\\Desktop\\FinalProject\\KhosuRoom.DataAccess\\Interceptors\\BaseAuditableInterceptor.cs",
+              "RelativeDocumentMoniker": "KhosuRoom.DataAccess\\Interceptors\\BaseAuditableInterceptor.cs",
+              "ToolTip": "C:\\Users\\Balqeyis\\Desktop\\FinalProject\\KhosuRoom.DataAccess\\Interceptors\\BaseAuditableInterceptor.cs",
+              "RelativeToolTip": "KhosuRoom.DataAccess\\Interceptors\\BaseAuditableInterceptor.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-12T14:54:06.646Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "DataAccessRegistration.cs",
+              "DocumentMoniker": "C:\\Users\\Balqeyis\\Desktop\\FinalProject\\KhosuRoom.DataAccess\\ServiceRegistartions\\DataAccessRegistration.cs",
+              "RelativeDocumentMoniker": "KhosuRoom.DataAccess\\ServiceRegistartions\\DataAccessRegistration.cs",
+              "ToolTip": "C:\\Users\\Balqeyis\\Desktop\\FinalProject\\KhosuRoom.DataAccess\\ServiceRegistartions\\DataAccessRegistration.cs",
+              "RelativeToolTip": "KhosuRoom.DataAccess\\ServiceRegistartions\\DataAccessRegistration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-12T14:54:01.465Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AppUsersController.cs",
+              "DocumentMoniker": "C:\\Users\\Balqeyis\\Desktop\\FinalProject\\KhosuRoom.Presentation\\Controllers\\AppUsersController.cs",
+              "RelativeDocumentMoniker": "KhosuRoom.Presentation\\Controllers\\AppUsersController.cs",
+              "ToolTip": "C:\\Users\\Balqeyis\\Desktop\\FinalProject\\KhosuRoom.Presentation\\Controllers\\AppUsersController.cs",
+              "RelativeToolTip": "KhosuRoom.Presentation\\Controllers\\AppUsersController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-12T14:50:49.765Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+C:\Users\Balqeyis\Desktop\FinalProject\KhosuRoom.DataAccess\bin\Debug\net8.0\KhosuRoom.DataAccess.deps.json
+C:\Users\Balqeyis\Desktop\FinalProject\KhosuRoom.DataAccess\bin\Debug\net8.0\KhosuRoom.DataAccess.dll
+C:\Users\Balqeyis\Desktop\FinalProject\KhosuRoom.DataAccess\bin\Debug\net8.0\KhosuRoom.DataAccess.pdb
+C:\Users\Balqeyis\Desktop\FinalProject\KhosuRoom.DataAccess\bin\Debug\net8.0\KhosuRoom.Core.dll
+C:\Users\Balqeyis\Desktop\FinalProject\KhosuRoom.DataAccess\bin\Debug\net8.0\KhosuRoom.Core.pdb
+C:\Users\Balqeyis\Desktop\FinalProject\KhosuRoom.DataAccess\obj\Debug\net8.0\KhosuRoom.DataAccess.csproj.AssemblyReference.cache
+C:\Users\Balqeyis\Desktop\FinalProject\KhosuRoom.DataAccess\obj\Debug\net8.0\KhosuRoom.DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Balqeyis\Desktop\FinalProject\KhosuRoom.DataAccess\obj\Debug\net8.0\KhosuRoom.DataAccess.AssemblyInfoInputs.cache
+C:\Users\Balqeyis\Desktop\FinalProject\KhosuRoom.DataAccess\obj\Debug\net8.0\KhosuRoom.DataAccess.AssemblyInfo.cs
+C:\Users\Balqeyis\Desktop\FinalProject\KhosuRoom.DataAccess\obj\Debug\net8.0\KhosuRoom.DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\Balqeyis\Desktop\FinalProject\KhosuRoom.DataAccess\obj\Debug\net8.0\KhosuRoom.DataAccess.sourcelink.json
+C:\Users\Balqeyis\Desktop\FinalProject\KhosuRoom.DataAccess\obj\Debug\net8.0\KhosuRoo.EA1DEAAD.Up2Date
+C:\Users\Balqeyis\Desktop\FinalProject\KhosuRoom.DataAccess\obj\Debug\net8.0\KhosuRoom.DataAccess.dll
+C:\Users\Balqeyis\Desktop\FinalProject\KhosuRoom.DataAccess\obj\Debug\net8.0\refint\KhosuRoom.DataAccess.dll
+C:\Users\Balqeyis\Desktop\FinalProject\KhosuRoom.DataAccess\obj\Debug\net8.0\KhosuRoom.DataAccess.pdb
+C:\Users\Balqeyis\Desktop\FinalProject\KhosuRoom.DataAccess\obj\Debug\net8.0\ref\KhosuRoom.DataAccess.dll

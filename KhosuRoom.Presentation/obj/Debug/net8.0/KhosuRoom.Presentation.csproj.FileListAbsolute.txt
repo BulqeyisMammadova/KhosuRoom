@@ -159,3 +159,6 @@ C:\Users\Balqeyis\Desktop\FinalProject\KhosuRoom.Presentation\obj\Debug\net8.0\r
 C:\Users\Balqeyis\Desktop\FinalProject\KhosuRoom.Presentation\obj\Debug\net8.0\KhosuRoom.Presentation.pdb
 C:\Users\Balqeyis\Desktop\FinalProject\KhosuRoom.Presentation\obj\Debug\net8.0\KhosuRoom.Presentation.genruntimeconfig.cache
 C:\Users\Balqeyis\Desktop\FinalProject\KhosuRoom.Presentation\obj\Debug\net8.0\ref\KhosuRoom.Presentation.dll
+C:\Users\Balqeyis\Desktop\FinalProject\KhosuRoom.Presentation\bin\Debug\net8.0\FluentValidation.dll
+C:\Users\Balqeyis\Desktop\FinalProject\KhosuRoom.Presentation\bin\Debug\net8.0\FluentValidation.AspNetCore.dll
+C:\Users\Balqeyis\Desktop\FinalProject\KhosuRoom.Presentation\bin\Debug\net8.0\FluentValidation.DependencyInjectionExtensions.dll

@@ -1,5 +1,6 @@
 ﻿using KhosuRoom.Core.Entities;
 using KhosuRoom.Core.Entities.Common;
+using KhosuRoom.DataAccess.Interceptors;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -8,42 +9,32 @@ namespace KhosuRoom.DataAccess.Data;
 
 internal class AppDBContext : IdentityDbContext<AppUser, IdentityRole<Guid>, Guid>
 {
-    public AppDBContext(DbContextOptions options) : base(options)
+    private readonly BaseAuditableInterceptor _baseAuditableInterceptor;
+
+
+    public AppDBContext(DbContextOptions options, BaseAuditableInterceptor baseAuditableInterceptor) : base(options)
     {
-    }
-    protected override void OnModelCreating(ModelBuilder builder)
-    {
-        builder.ApplyConfigurationsFromAssembly(typeof(AppDBContext).Assembly);
-        base.OnModelCreating(builder);
+        _baseAuditableInterceptor = baseAuditableInterceptor;
     }
 
-    public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
+   
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        var entities=  this.ChangeTracker.Entries<BaseAutitableEntity>().ToList();
-        foreach (var entry in entities)
-        {
-            switch (entry.State)
-            {
-                case EntityState.Added:
-                    entry.Entity.CreateDate = DateTime.UtcNow;
-                    entry.Entity.CreateBy = "Admin";
-                    break;
-                case EntityState.Modified:
-                    entry.Entity.UpdateDate = DateTime.UtcNow;
-                    entry.Entity.UpdateBy = "Admin";
-                    break;
-                case EntityState.Deleted:
-                    entry.Entity.DeleteDate = DateTime.UtcNow;
-                    entry.Entity.DeleteBy = "Admin";
-                    entry.Entity.IsDeleted = true;
-                    entry.State = EntityState.Modified;
-                    break;
-
-            }
-        }
-        return base.SaveChangesAsync(cancellationToken);
+        base.OnModelCreating(modelBuilder);
+        modelBuilder.ApplyConfigurationsFromAssembly(typeof(AppDBContext).Assembly);
+        modelBuilder.Entity<Group>().HasQueryFilter(g => !g.IsDeleted);
+       
     }
-   public DbSet<Group> Groups { get; set; } = null!;
+
+    override protected void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+        optionsBuilder.AddInterceptors(_baseAuditableInterceptor);
+        base.OnConfiguring(optionsBuilder);
+    }
+
+
+
+    public DbSet<Group> Groups { get; set; } = null!;
    public DbSet<GroupMember> GroupMembers { get; set; } = null!;
 
 }

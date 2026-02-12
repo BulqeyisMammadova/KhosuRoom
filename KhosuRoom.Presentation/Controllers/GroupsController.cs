@@ -19,10 +19,7 @@ public class GroupsController : ControllerBase
     [HttpGet]
     public async Task<IActionResult> GetGroups()
     {
-        if (!ModelState.IsValid)
-        {
-            return BadRequest(ModelState);
-        }
+       
         var result = await _groupService.GetAllGroupAsnyc();
         return Ok(result);
     }
@@ -38,7 +35,7 @@ public class GroupsController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<IActionResult> CreateGroup(GroupCreateDto dto)
+    public async Task<IActionResult> CreateGroup([FromBody]GroupCreateDto dto)
     {
         if (!ModelState.IsValid)
         {
@@ -48,7 +45,7 @@ public class GroupsController : ControllerBase
         return Ok(result);
     }
     [HttpPut]
-    public async Task<IActionResult> UpdateGroup(GroupUpdateDto dto)
+    public async Task<IActionResult> UpdateGroup([FromBody]GroupUpdateDto dto)
     {
         if (!ModelState.IsValid)
         {

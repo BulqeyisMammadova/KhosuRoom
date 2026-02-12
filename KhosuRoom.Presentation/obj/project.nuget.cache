@@ -1,12 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "244Czs/MiG8=",
+  "dgSpecHash": "1vREqsLDjE8=",
   "success": true,
   "projectFilePath": "C:\\Users\\Balqeyis\\Desktop\\FinalProject\\KhosuRoom.Presentation\\KhosuRoom.Presentation.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Balqeyis\\.nuget\\packages\\automapper\\16.0.0\\automapper.16.0.0.nupkg.sha512",
     "C:\\Users\\Balqeyis\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\Balqeyis\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",
+    "C:\\Users\\Balqeyis\\.nuget\\packages\\fluentvalidation\\12.1.1\\fluentvalidation.12.1.1.nupkg.sha512",
+    "C:\\Users\\Balqeyis\\.nuget\\packages\\fluentvalidation.aspnetcore\\11.3.1\\fluentvalidation.aspnetcore.11.3.1.nupkg.sha512",
+    "C:\\Users\\Balqeyis\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.11.0\\fluentvalidation.dependencyinjectionextensions.11.11.0.nupkg.sha512",
     "C:\\Users\\Balqeyis\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\Balqeyis\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\8.0.24\\microsoft.aspnetcore.cryptography.internal.8.0.24.nupkg.sha512",
     "C:\\Users\\Balqeyis\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\8.0.24\\microsoft.aspnetcore.cryptography.keyderivation.8.0.24.nupkg.sha512",

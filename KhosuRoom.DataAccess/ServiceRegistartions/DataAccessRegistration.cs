@@ -1,4 +1,5 @@
 ﻿using KhosuRoom.DataAccess.Data;
+using KhosuRoom.DataAccess.Interceptors;
 using KhosuRoom.DataAccess.Repository.Abstarctions;
 using KhosuRoom.DataAccess.Repository.Implementations;
 using Microsoft.EntityFrameworkCore;
@@ -17,6 +18,7 @@ public static class DataAccessRegistration
         {
             opt.UseSqlServer(configuration.GetConnectionString("Default"));
         });
+        services.AddScoped<BaseAuditableInterceptor>();
         return services;
     }
 }

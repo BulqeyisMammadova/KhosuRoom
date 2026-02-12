@@ -1,9 +1,3 @@
-git branch -r
-git checkout test2
-nano main.txt
-git push
-git merge test2
-git push
 cat main.txt
 git merge test2
 giy push
@@ -497,4 +491,10 @@ git add .
 git commit -m "first commit"
 git branch -M main
 git remote add origin https://github.com/BulqeyisMammadova/Api_Intro.git
+git push -u origin main
+git init
+git add .
+git commit -m "Create Project"
+git branch -M main
+git remote add origin https://github.com/BulqeyisMammadova/KhosuRoom.git
 git push -u origin main

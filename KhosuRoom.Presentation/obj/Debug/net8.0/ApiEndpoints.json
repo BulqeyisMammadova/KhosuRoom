@@ -1,5 +1,21 @@
 [
   {
+    "ContainingType": "KhosuRoom.Presentation.Controllers.AuthController",
+    "Method": "Login",
+    "RelativePath": "api/Auth/Login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "loginDto",
+        "Type": "KhosuRoom.Business.Dtos.UserDtos.LoginDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "KhosuRoom.Presentation.Controllers.GroupsController",
     "Method": "GetGroups",
     "RelativePath": "api/Groups",

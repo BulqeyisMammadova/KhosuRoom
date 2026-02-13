@@ -20,7 +20,7 @@ builder.Services.AddSwaggerGen();
 
 
 builder.Services.AddDataAccessServices(builder.Configuration);
-builder.Services.AddBusinessServices();
+builder.Services.AddBusinessServices(builder.Configuration);
 var app = builder.Build();
 
 var scope = app.Services.CreateScope();
@@ -28,6 +28,7 @@ var contextInitalizer = scope.ServiceProvider.GetRequiredService<IContextInitali
 
 await contextInitalizer.InitDatabaseAsync();
 
+if(!app.Environment.IsDevelopment())
 app.UseMiddleware<GlobalExceptionnHandler>();
 app.UseCors("MyPolicy");
 // Configure the HTTP request pipeline.

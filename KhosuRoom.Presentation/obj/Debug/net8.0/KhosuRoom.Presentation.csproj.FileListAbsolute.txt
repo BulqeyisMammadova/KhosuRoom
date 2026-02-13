@@ -169,3 +169,4 @@ C:\Users\Balqeyis\Desktop\FinalProject\KhosuRoom.Presentation\bin\Debug\net8.0\M
 C:\Users\Balqeyis\Desktop\FinalProject\KhosuRoom.Presentation\bin\Debug\net8.0\System.Security.Cryptography.Pkcs.dll
 C:\Users\Balqeyis\Desktop\FinalProject\KhosuRoom.Presentation\bin\Debug\net8.0\System.Security.Cryptography.Xml.dll
 C:\Users\Balqeyis\Desktop\FinalProject\KhosuRoom.Presentation\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Security.Cryptography.Pkcs.dll
+C:\Users\Balqeyis\Desktop\FinalProject\KhosuRoom.Presentation\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

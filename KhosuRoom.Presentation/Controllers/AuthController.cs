@@ -20,7 +20,12 @@ public class AuthController(IAuthService _authService) : ControllerBase
         return Ok(result);
     }
 
-
+    [HttpPost("[action]")]
+    public async Task<IActionResult> RefreshToken([FromBody] string refreshToken)
+    {
+        var result = await _authService.RefreshTokenAsync(refreshToken);
+        return Ok(result);
+    }
 
 
 

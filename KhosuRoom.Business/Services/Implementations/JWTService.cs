@@ -31,10 +31,13 @@ internal class JWTService : IJWTService
 
         JwtSecurityTokenHandler jwtSecurityTokenHandler = new();
         string token = jwtSecurityTokenHandler.WriteToken(jwtSecurityToken);
+        string refreshToken = Guid.NewGuid().ToString();
         return new()
         {
             Token = token,
-            ExpiredToken = DateTime.UtcNow.AddMinutes(_options.ExpiredDate)
+            ExpiredToken = DateTime.UtcNow.AddMinutes(_options.ExpiredDate),
+            RefreshToken = refreshToken,
+            ExpiredRefreshToken = DateTime.UtcNow.AddMinutes(_options.ExpiredDate + 60)
         };
     }
 

@@ -1,5 +1,6 @@
 ﻿using KhosuRoom.Business.Dtos.GroupDtos;
 using KhosuRoom.Business.Services.Abstractions;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -7,6 +8,7 @@ namespace KhosuRoom.Presentation.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
+[Authorize(Roles ="Admin")]
 public class GroupsController : ControllerBase
 {
     private readonly IGroupService _groupService;

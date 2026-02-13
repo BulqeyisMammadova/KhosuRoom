@@ -28,7 +28,9 @@ public static class BusinessServiceRegistration
 
         services.AddAuthentication(options =>
         {
+            options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
             options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+            options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
         }).AddJwtBearer(opt =>
         {
             opt.TokenValidationParameters = new()
@@ -43,7 +45,7 @@ public static class BusinessServiceRegistration
             };
         });
 
-
+        services.AddAuthorization();
         return services;
     }
 }

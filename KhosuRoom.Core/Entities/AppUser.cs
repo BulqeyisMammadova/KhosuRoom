@@ -10,4 +10,6 @@ public class AppUser : IdentityUser<Guid>
 
     public bool IsActive { get; set; } = true;
    public ICollection<GroupMember> GroupMembers { get; set; } = [];
+    public string RefreshToken { get; set; } = null!;
+        public DateTime RefreshTokenExpireDate { get; set; }
 }

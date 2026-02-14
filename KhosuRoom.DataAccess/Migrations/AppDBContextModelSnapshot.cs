@@ -61,6 +61,9 @@ namespace KhosuRoom.DataAccess.Migrations
                     b.Property<DateTimeOffset?>("LockoutEnd")
                         .HasColumnType("datetimeoffset");
 
+                    b.Property<bool>("MustChangePassword")
+                        .HasColumnType("bit");
+
                     b.Property<string>("NormalizedEmail")
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
@@ -83,10 +86,9 @@ namespace KhosuRoom.DataAccess.Migrations
                         .HasColumnType("nvarchar(500)");
 
                     b.Property<string>("RefreshToken")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("RefreshTokenExpireDate")
+                    b.Property<DateTime?>("RefreshTokenExpireDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("SecurityStamp")

@@ -28,10 +28,7 @@ public class GroupsController : ControllerBase
     [HttpGet("{id}")]
     public async Task<IActionResult> GetGroup(Guid id)
     {
-        if (!ModelState.IsValid)
-        {
-            return BadRequest(ModelState);
-        }
+       
         var result = await _groupService.GetGroupAsync(id);
         return Ok(result);
     }
@@ -39,30 +36,21 @@ public class GroupsController : ControllerBase
     [HttpPost]
     public async Task<IActionResult> CreateGroup([FromBody]GroupCreateDto dto)
     {
-        if (!ModelState.IsValid)
-        {
-            return BadRequest(ModelState);
-        }
+       
        var result =  await _groupService.CreateGroupAsync(dto);
         return Ok(result);
     }
     [HttpPut]
     public async Task<IActionResult> UpdateGroup([FromBody]GroupUpdateDto dto)
     {
-        if (!ModelState.IsValid)
-        {
-            return BadRequest(ModelState);
-        }
+       
        var result = await _groupService.UpdateGroupAsync(dto);
         return Ok(result);
     }
     [HttpDelete("{id}")]
     public async Task<IActionResult> DeleteGroup(Guid id)
     {
-        if (!ModelState.IsValid)
-        {
-            return BadRequest(ModelState);
-        }
+       
        var result = await _groupService.DeleteGroupAsync(id);
         return Ok(result);
     }

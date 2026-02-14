@@ -3,6 +3,7 @@ using KhosuRoom.Business.Dtos.UserDtos;
 using KhosuRoom.Business.Exceptions;
 using KhosuRoom.Business.Services.Abstractions;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
 
 namespace KhosuRoom.Business.Services.Implementations;
@@ -13,10 +14,11 @@ internal class AuthService(UserManager<AppUser> _userManager, IJWTService _jwtSe
     {
         var user = await _userManager.FindByEmailAsync(dto.Email);
         if (user is null) throw new LoginException("Login faild");
+        if (!user.IsActive) throw new LoginException("User is deactivated");
         var isTruePassWord = await _userManager.CheckPasswordAsync(user, dto.Password);
         if (!isTruePassWord) throw new LoginException("Login faild");
         AccessTokenDto tokenResult = await GetNewAccessToken(user);
-
+        tokenResult.MustChangePassword = user.MustChangePassword;
         return new(tokenResult);
 
 
@@ -32,7 +34,7 @@ internal class AuthService(UserManager<AppUser> _userManager, IJWTService _jwtSe
             new Claim("UserName",user.UserName!),
             new Claim("Email",user.Email!),
             new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
-            new Claim("Role",roles.FirstOrDefault()?? "undefined"),
+            new Claim(ClaimTypes.Role,roles.FirstOrDefault()?? "undefined"),
 
         };
 
@@ -48,8 +50,15 @@ internal class AuthService(UserManager<AppUser> _userManager, IJWTService _jwtSe
         var user = _userManager.Users.FirstOrDefault(u => u.RefreshToken == refreshToken && u.RefreshTokenExpireDate > DateTime.UtcNow);
         if (user == null) throw new LoginException("Invalid refresh token");
         var newAccessToken = await GetNewAccessToken(user);
+        newAccessToken.MustChangePassword = user.MustChangePassword;
         return new(newAccessToken);
 
 
     }
 }
+
+
+
+
+
+

@@ -6,5 +6,6 @@ public class AccessTokenDto
     public DateTime ExpiredToken { get; set; }
     public string RefreshToken { get; set; } = string.Empty;
     public DateTime ExpiredRefreshToken { get; set; }
+    public bool MustChangePassword { get; set; }
 
 }

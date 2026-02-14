@@ -21,6 +21,7 @@ public static class BusinessServiceRegistration
         services.AddScoped<IGroupService, GroupService>();
         services.AddScoped<IAuthService, AuthService>();
         services.AddScoped<IJWTService, JWTService>();
+        services.AddScoped<IUserService, UserService>();
 
         services.AddAutoMapper(_ => { }, typeof(BusinessServiceRegistration).Assembly);
 

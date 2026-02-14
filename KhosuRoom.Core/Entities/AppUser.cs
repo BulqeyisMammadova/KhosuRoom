@@ -9,7 +9,9 @@ public class AppUser : IdentityUser<Guid>
     public string? ProfileImageUrl { get; set; }
 
     public bool IsActive { get; set; } = true;
-   public ICollection<GroupMember> GroupMembers { get; set; } = [];
-    public string RefreshToken { get; set; } = null!;
-        public DateTime RefreshTokenExpireDate { get; set; }
+    public bool MustChangePassword { get; set; } = true;
+
+    public ICollection<GroupMember> GroupMembers { get; set; } = [];
+    public string? RefreshToken { get; set; } 
+    public DateTime? RefreshTokenExpireDate { get; set; }
 }

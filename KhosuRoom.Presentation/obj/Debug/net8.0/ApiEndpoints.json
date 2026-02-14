@@ -1,5 +1,111 @@
 [
   {
+    "ContainingType": "KhosuRoom.Presentation.Controllers.AdminUsersController",
+    "Method": "GetUsers",
+    "RelativePath": "api/admin/users",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "role",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "q",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "KhosuRoom.Presentation.Controllers.AdminUsersController",
+    "Method": "GetById",
+    "RelativePath": "api/admin/users/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "KhosuRoom.Presentation.Controllers.AdminUsersController",
+    "Method": "Update",
+    "RelativePath": "api/admin/users/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "KhosuRoom.Business.Dtos.UserDtos.AdminUpdateUserDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "KhosuRoom.Presentation.Controllers.AdminUsersController",
+    "Method": "Deactivate",
+    "RelativePath": "api/admin/users/{id}/deactivate",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "KhosuRoom.Presentation.Controllers.AdminUsersController",
+    "Method": "CreateStudent",
+    "RelativePath": "api/admin/users/students",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "KhosuRoom.Business.Dtos.UserDtos.AdminCreateUserDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "KhosuRoom.Presentation.Controllers.AdminUsersController",
+    "Method": "CreateTeacher",
+    "RelativePath": "api/admin/users/teachers",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "KhosuRoom.Business.Dtos.UserDtos.AdminCreateUserDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "KhosuRoom.Presentation.Controllers.AuthController",
     "Method": "Login",
     "RelativePath": "api/Auth/Login",
@@ -10,6 +116,22 @@
       {
         "Name": "loginDto",
         "Type": "KhosuRoom.Business.Dtos.UserDtos.LoginDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "KhosuRoom.Presentation.Controllers.AuthController",
+    "Method": "RefreshToken",
+    "RelativePath": "api/Auth/RefreshToken",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "refreshToken",
+        "Type": "System.String",
         "IsRequired": true
       }
     ],
@@ -84,6 +206,48 @@
       {
         "Name": "id",
         "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "KhosuRoom.Presentation.Controllers.MeController",
+    "Method": "GetMe",
+    "RelativePath": "api/me",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "KhosuRoom.Presentation.Controllers.MeController",
+    "Method": "ChangePassword",
+    "RelativePath": "api/me/change-password",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "KhosuRoom.Business.Dtos.UserDtos.ChangePasswordDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "KhosuRoom.Presentation.Controllers.MeController",
+    "Method": "UpdateProfileImage",
+    "RelativePath": "api/me/profile-image",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "KhosuRoom.Business.Dtos.UserDtos.MeUpdateProfileImageDto",
         "IsRequired": true
       }
     ],

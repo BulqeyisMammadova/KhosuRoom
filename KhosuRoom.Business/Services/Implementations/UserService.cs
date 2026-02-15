@@ -14,11 +14,13 @@ internal class UserService : IUserService
 {
     private readonly UserManager<AppUser> _userManager;
     private readonly IMapper _mapper;
+    private readonly ICloudinaryService _cloudinaryService;
 
-    public UserService(UserManager<AppUser> userManager, IMapper mapper)
+    public UserService(UserManager<AppUser> userManager, IMapper mapper, ICloudinaryService cloudinaryService)
     {
         _userManager = userManager;
         _mapper = mapper;
+        _cloudinaryService = cloudinaryService;
     }
 
     private static string Normalize(string s)
@@ -191,7 +193,7 @@ internal class UserService : IUserService
         var user = await _userManager.FindByIdAsync(userId.ToString());
         if (user is null) throw new NotFoundExceptions("User not found");
 
-        user.ProfileImageUrl = dto.ProfileImageUrl;
+        user.ProfileImageUrl = await _cloudinaryService.FileUploadAsync(dto.ProfileImageUrl!);
 
         var update = await _userManager.UpdateAsync(user);
         if (!update.Succeeded)

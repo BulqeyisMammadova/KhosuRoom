@@ -138,6 +138,80 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "KhosuRoom.Presentation.Controllers.GroupMembersController",
+    "Method": "GetMembers",
+    "RelativePath": "api/GroupMembers/{groupId}/members",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "groupId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "KhosuRoom.Presentation.Controllers.GroupMembersController",
+    "Method": "AddMember",
+    "RelativePath": "api/GroupMembers/{groupId}/members",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "groupId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "KhosuRoom.Business.Dtos.GroupMemberDtos.AddGroupMemberDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "KhosuRoom.Presentation.Controllers.GroupMembersController",
+    "Method": "RemoveMember",
+    "RelativePath": "api/GroupMembers/{groupId}/members/{userId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "groupId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "userId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "KhosuRoom.Presentation.Controllers.GroupMembersController",
+    "Method": "JoinByCode",
+    "RelativePath": "api/GroupMembers/join",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "KhosuRoom.Business.Dtos.GroupMemberDtos.JoinGroupDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "KhosuRoom.Presentation.Controllers.GroupsController",
     "Method": "GetGroups",
     "RelativePath": "api/Groups",
@@ -246,9 +320,9 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "dto",
-        "Type": "KhosuRoom.Business.Dtos.UserDtos.MeUpdateProfileImageDto",
-        "IsRequired": true
+        "Name": "ProfileImageUrl",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []

@@ -7,3 +7,5 @@ namespace KhosuRoom.DataAccess.Repository.Implementations;
 internal class GroupRepository(AppDBContext _context) : Repository<Group>(_context), IGroupRepository
 {
 }
+
+

@@ -16,26 +16,36 @@ public static class DataAccessRegistration
 
     public static IServiceCollection AddDataAccessServices(this IServiceCollection services,IConfiguration configuration)
     {
-        services.AddScoped<IGroupRepository, GroupRepository>();
-        services.AddScoped<IContextInitalizer, DbContextInitalizer>();
+        AddScoped(services);
         services.AddDbContext<AppDBContext>(opt =>
         {
             opt.UseSqlServer(configuration.GetConnectionString("Default"));
         });
-        
+
         services.AddIdentity<AppUser, IdentityRole<Guid>>(opt =>
         {
-                opt.Password.RequireDigit = true;
-                opt.Password.RequireLowercase = true;
-                opt.Password.RequireUppercase = true;
-                opt.Password.RequireNonAlphanumeric = false;
-                opt.Password.RequiredLength = 6;
-                 opt.User.RequireUniqueEmail = true;
+            opt.Password.RequireDigit = true;
+            opt.Password.RequireLowercase = true;
+            opt.Password.RequireUppercase = true;
+            opt.Password.RequireNonAlphanumeric = false;
+            opt.Password.RequiredLength = 6;
+            opt.User.RequireUniqueEmail = true;
         })
             .AddEntityFrameworkStores<AppDBContext>()
             .AddDefaultTokenProviders();
 
         services.AddScoped<BaseAuditableInterceptor>();
         return services;
+    }
+
+    private static void AddScoped(IServiceCollection services)
+    {
+        services.AddScoped<IGroupRepository, GroupRepository>();
+        services.AddScoped<IGroupMemberRepository, GroupMemberRepository>();
+        services.AddScoped<IAssigmentRepository, AssignmentRepository>();
+        services.AddScoped<IAssignmentAttachmentRepository, AssignmentAttachmentRepository>();
+        services.AddScoped<ISubmissionRepository, SubmissionRepository>();
+        services.AddScoped<ISubmissionAttachmentRepository, SubmissionAttachmentRepository>();
+        services.AddScoped<IContextInitalizer, DbContextInitalizer>();
     }
 }

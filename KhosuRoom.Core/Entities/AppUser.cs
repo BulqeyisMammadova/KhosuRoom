@@ -14,4 +14,6 @@ public class AppUser : IdentityUser<Guid>
     public ICollection<GroupMember> GroupMembers { get; set; } = [];
     public string? RefreshToken { get; set; } 
     public DateTime? RefreshTokenExpireDate { get; set; }
+    public ICollection<Assignment> CreatedAssignments { get; set; } = [];
+    public ICollection<Submission> Submissions { get; set; } = [];
 }

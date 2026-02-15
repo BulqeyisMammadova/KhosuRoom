@@ -31,7 +31,7 @@ public class MeController : ControllerBase
     }
 
     [HttpPatch("profile-image")]
-    public async Task<IActionResult> UpdateProfileImage(MeUpdateProfileImageDto dto)
+    public async Task<IActionResult> UpdateProfileImage([FromForm]MeUpdateProfileImageDto dto)
     {
         var result = await _userService.UpdateMyProfileImageAsync(GetUserId(), dto);
         return Ok(result);

@@ -1,4 +1,4 @@
-﻿using KhosuRoom.Business.Dtos.GroupDtos;
+﻿using KhosuRoom.Business.Dtos.GroupMemberDtos;
 
 namespace KhosuRoom.Business.Dtos;
 

@@ -18,10 +18,7 @@ public static class BusinessServiceRegistration
     {
         services.AddFluentValidationAutoValidation();
         services.AddValidatorsFromAssemblyContaining<GroupCreateDtoValidator>();
-        services.AddScoped<IGroupService, GroupService>();
-        services.AddScoped<IAuthService, AuthService>();
-        services.AddScoped<IJWTService, JWTService>();
-        services.AddScoped<IUserService, UserService>();
+        AddScope(services);
 
         services.AddAutoMapper(_ => { }, typeof(BusinessServiceRegistration).Assembly);
 
@@ -48,5 +45,15 @@ public static class BusinessServiceRegistration
 
         services.AddAuthorization();
         return services;
+    }
+
+    private static void AddScope(IServiceCollection services)
+    {
+        services.AddScoped<IGroupService, GroupService>();
+        services.AddScoped<IAuthService, AuthService>();
+        services.AddScoped<IJWTService, JWTService>();
+        services.AddScoped<IUserService, UserService>();
+        services.AddScoped<IGroupMemberService, GroupMemberService>();
+        services.AddScoped<ICloudinaryService, CloudinaryService>();
     }
 }

@@ -23,7 +23,9 @@ internal class AppDBContext : IdentityDbContext<AppUser, IdentityRole<Guid>, Gui
         base.OnModelCreating(modelBuilder);
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(AppDBContext).Assembly);
         modelBuilder.Entity<Group>().HasQueryFilter(g => !g.IsDeleted);
-       
+        modelBuilder.Entity<Assignment>().HasQueryFilter(a => !a.IsDeleted);
+        modelBuilder.Entity<Submission>().HasQueryFilter(s => !s.IsDeleted);
+
     }
 
     override protected void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -36,5 +38,9 @@ internal class AppDBContext : IdentityDbContext<AppUser, IdentityRole<Guid>, Gui
 
     public DbSet<Group> Groups { get; set; } = null!;
    public DbSet<GroupMember> GroupMembers { get; set; } = null!;
+    public DbSet<Assignment> Assignments { get; set; } = null!;
+    public DbSet<AssignmentAttachment> AssignmentAttachments { get; set; } = null!;
+    public DbSet<Submission> Submissions { get; set; } = null!;
+    public DbSet<SubmissionAttachment> SubmissionAttachments { get; set; } = null!;
 
 }

@@ -8,7 +8,7 @@ namespace KhosuRoom.Presentation.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
-[Authorize(Roles ="Admin")]
+
 public class GroupsController : ControllerBase
 {
     private readonly IGroupService _groupService;
@@ -18,6 +18,7 @@ public class GroupsController : ControllerBase
         _groupService = groupService;
     }
 
+    [Authorize]
     [HttpGet]
     public async Task<IActionResult> GetGroups()
     {
@@ -25,6 +26,7 @@ public class GroupsController : ControllerBase
         var result = await _groupService.GetAllGroupAsnyc();
         return Ok(result);
     }
+    [Authorize]
     [HttpGet("{id}")]
     public async Task<IActionResult> GetGroup(Guid id)
     {
@@ -32,6 +34,7 @@ public class GroupsController : ControllerBase
         var result = await _groupService.GetGroupAsync(id);
         return Ok(result);
     }
+    [Authorize(Roles = "Admin")]
 
     [HttpPost]
     public async Task<IActionResult> CreateGroup([FromBody]GroupCreateDto dto)
@@ -40,6 +43,7 @@ public class GroupsController : ControllerBase
        var result =  await _groupService.CreateGroupAsync(dto);
         return Ok(result);
     }
+    [Authorize(Roles = "Admin")]
     [HttpPut]
     public async Task<IActionResult> UpdateGroup([FromBody]GroupUpdateDto dto)
     {
@@ -47,6 +51,7 @@ public class GroupsController : ControllerBase
        var result = await _groupService.UpdateGroupAsync(dto);
         return Ok(result);
     }
+    [Authorize(Roles = "Admin")]
     [HttpDelete("{id}")]
     public async Task<IActionResult> DeleteGroup(Guid id)
     {

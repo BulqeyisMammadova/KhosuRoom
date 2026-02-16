@@ -7,20 +7,20 @@
       "RelativeMoniker": "D:0:0:{DC7E49C2-083B-4060-8B18-C1A4068FAD69}|KhosuRoom.Business\\KhosuRoom.Business.csproj|solutionrelative:khosuroom.business\\services\\implementations\\assignmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DC7E49C2-083B-4060-8B18-C1A4068FAD69}|KhosuRoom.Business\\KhosuRoom.Business.csproj|c:\\users\\balqeyis\\desktop\\finalproject\\khosuroom.business\\services\\implementations\\submissionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DC7E49C2-083B-4060-8B18-C1A4068FAD69}|KhosuRoom.Business\\KhosuRoom.Business.csproj|solutionrelative:khosuroom.business\\services\\implementations\\submissionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C2B9B4EF-3BB5-4735-BE06-737BE11B6B2C}|KhosuRoom.DataAccess\\KhosuRoom.DataAccess.csproj|c:\\users\\balqeyis\\desktop\\finalproject\\khosuroom.dataaccess\\serviceregistartions\\dataaccessregistration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C2B9B4EF-3BB5-4735-BE06-737BE11B6B2C}|KhosuRoom.DataAccess\\KhosuRoom.DataAccess.csproj|solutionrelative:khosuroom.dataaccess\\serviceregistartions\\dataaccessregistration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DF052A11-961E-456A-87B3-00B501EC8C3A}|KhosuRoom.Presentation\\KhosuRoom.Presentation.csproj|c:\\users\\balqeyis\\desktop\\finalproject\\khosuroom.presentation\\controllers\\assignmentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DF052A11-961E-456A-87B3-00B501EC8C3A}|KhosuRoom.Presentation\\KhosuRoom.Presentation.csproj|solutionrelative:khosuroom.presentation\\controllers\\assignmentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DC7E49C2-083B-4060-8B18-C1A4068FAD69}|KhosuRoom.Business\\KhosuRoom.Business.csproj|c:\\users\\balqeyis\\desktop\\finalproject\\khosuroom.business\\services\\abstractions\\iassignmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DC7E49C2-083B-4060-8B18-C1A4068FAD69}|KhosuRoom.Business\\KhosuRoom.Business.csproj|solutionrelative:khosuroom.business\\services\\abstractions\\iassignmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DC7E49C2-083B-4060-8B18-C1A4068FAD69}|KhosuRoom.Business\\KhosuRoom.Business.csproj|c:\\users\\balqeyis\\desktop\\finalproject\\khosuroom.business\\services\\abstractions\\isubmissionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DC7E49C2-083B-4060-8B18-C1A4068FAD69}|KhosuRoom.Business\\KhosuRoom.Business.csproj|solutionrelative:khosuroom.business\\services\\abstractions\\isubmissionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DC7E49C2-083B-4060-8B18-C1A4068FAD69}|KhosuRoom.Business\\KhosuRoom.Business.csproj|c:\\users\\balqeyis\\desktop\\finalproject\\khosuroom.business\\serviceregistrations\\businessserviceregistration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DC7E49C2-083B-4060-8B18-C1A4068FAD69}|KhosuRoom.Business\\KhosuRoom.Business.csproj|solutionrelative:khosuroom.business\\serviceregistrations\\businessserviceregistration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DC7E49C2-083B-4060-8B18-C1A4068FAD69}|KhosuRoom.Business\\KhosuRoom.Business.csproj|c:\\users\\balqeyis\\desktop\\finalproject\\khosuroom.business\\profiles\\dashboardprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DC7E49C2-083B-4060-8B18-C1A4068FAD69}|KhosuRoom.Business\\KhosuRoom.Business.csproj|solutionrelative:khosuroom.business\\profiles\\dashboardprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -50,15 +50,28 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "SubmissionService.cs",
-              "DocumentMoniker": "C:\\Users\\Balqeyis\\Desktop\\FinalProject\\KhosuRoom.Business\\Services\\Implementations\\SubmissionService.cs",
-              "RelativeDocumentMoniker": "KhosuRoom.Business\\Services\\Implementations\\SubmissionService.cs",
-              "ToolTip": "C:\\Users\\Balqeyis\\Desktop\\FinalProject\\KhosuRoom.Business\\Services\\Implementations\\SubmissionService.cs",
-              "RelativeToolTip": "KhosuRoom.Business\\Services\\Implementations\\SubmissionService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAA1AAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "AssignmentsController.cs",
+              "DocumentMoniker": "C:\\Users\\Balqeyis\\Desktop\\FinalProject\\KhosuRoom.Presentation\\Controllers\\AssignmentsController.cs",
+              "RelativeDocumentMoniker": "KhosuRoom.Presentation\\Controllers\\AssignmentsController.cs",
+              "ToolTip": "C:\\Users\\Balqeyis\\Desktop\\FinalProject\\KhosuRoom.Presentation\\Controllers\\AssignmentsController.cs",
+              "RelativeToolTip": "KhosuRoom.Presentation\\Controllers\\AssignmentsController.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAowDEAAAA+AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-15T20:47:13.11Z",
+              "WhenOpened": "2026-02-16T21:22:21.68Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "DataAccessRegistration.cs",
+              "DocumentMoniker": "C:\\Users\\Balqeyis\\Desktop\\FinalProject\\KhosuRoom.DataAccess\\ServiceRegistartions\\DataAccessRegistration.cs",
+              "RelativeDocumentMoniker": "KhosuRoom.DataAccess\\ServiceRegistartions\\DataAccessRegistration.cs",
+              "ToolTip": "C:\\Users\\Balqeyis\\Desktop\\FinalProject\\KhosuRoom.DataAccess\\ServiceRegistartions\\DataAccessRegistration.cs",
+              "RelativeToolTip": "KhosuRoom.DataAccess\\ServiceRegistartions\\DataAccessRegistration.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAQwDEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-16T21:21:44.344Z",
               "EditorCaption": ""
             },
             {
@@ -69,48 +82,35 @@
               "RelativeDocumentMoniker": "KhosuRoom.Business\\Services\\Implementations\\AssignmentService.cs",
               "ToolTip": "C:\\Users\\Balqeyis\\Desktop\\FinalProject\\KhosuRoom.Business\\Services\\Implementations\\AssignmentService.cs",
               "RelativeToolTip": "KhosuRoom.Business\\Services\\Implementations\\AssignmentService.cs",
-              "ViewState": "AgIAABYAAAAAAAAAAAA1wDwAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAPsAAAAAAAAAAAAcwBUBAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-15T20:44:39.699Z",
+              "WhenOpened": "2026-02-16T21:16:14.712Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "ISubmissionService.cs",
-              "DocumentMoniker": "C:\\Users\\Balqeyis\\Desktop\\FinalProject\\KhosuRoom.Business\\Services\\Abstractions\\ISubmissionService.cs",
-              "RelativeDocumentMoniker": "KhosuRoom.Business\\Services\\Abstractions\\ISubmissionService.cs",
-              "ToolTip": "C:\\Users\\Balqeyis\\Desktop\\FinalProject\\KhosuRoom.Business\\Services\\Abstractions\\ISubmissionService.cs",
-              "RelativeToolTip": "KhosuRoom.Business\\Services\\Abstractions\\ISubmissionService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-15T20:42:28.101Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
               "Title": "IAssignmentService.cs",
               "DocumentMoniker": "C:\\Users\\Balqeyis\\Desktop\\FinalProject\\KhosuRoom.Business\\Services\\Abstractions\\IAssignmentService.cs",
               "RelativeDocumentMoniker": "KhosuRoom.Business\\Services\\Abstractions\\IAssignmentService.cs",
               "ToolTip": "C:\\Users\\Balqeyis\\Desktop\\FinalProject\\KhosuRoom.Business\\Services\\Abstractions\\IAssignmentService.cs",
               "RelativeToolTip": "KhosuRoom.Business\\Services\\Abstractions\\IAssignmentService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAABRAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-15T20:39:12.37Z",
+              "WhenOpened": "2026-02-16T21:16:02.737Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "BusinessServiceRegistration.cs",
-              "DocumentMoniker": "C:\\Users\\Balqeyis\\Desktop\\FinalProject\\KhosuRoom.Business\\ServiceRegistrations\\BusinessServiceRegistration.cs",
-              "RelativeDocumentMoniker": "KhosuRoom.Business\\ServiceRegistrations\\BusinessServiceRegistration.cs",
-              "ToolTip": "C:\\Users\\Balqeyis\\Desktop\\FinalProject\\KhosuRoom.Business\\ServiceRegistrations\\BusinessServiceRegistration.cs",
-              "RelativeToolTip": "KhosuRoom.Business\\ServiceRegistrations\\BusinessServiceRegistration.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "DashboardProfile.cs",
+              "DocumentMoniker": "C:\\Users\\Balqeyis\\Desktop\\FinalProject\\KhosuRoom.Business\\Profiles\\DashboardProfile.cs",
+              "RelativeDocumentMoniker": "KhosuRoom.Business\\Profiles\\DashboardProfile.cs",
+              "ToolTip": "C:\\Users\\Balqeyis\\Desktop\\FinalProject\\KhosuRoom.Business\\Profiles\\DashboardProfile.cs",
+              "RelativeToolTip": "KhosuRoom.Business\\Profiles\\DashboardProfile.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAABDAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-15T19:52:10.947Z",
+              "WhenOpened": "2026-02-16T21:15:16.226Z",
               "EditorCaption": ""
             }
           ]

@@ -120,9 +120,6 @@ namespace KhosuRoom.DataAccess.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("AppUserId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<string>("CreateBy")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -146,9 +143,6 @@ namespace KhosuRoom.DataAccess.Migrations
                     b.Property<Guid>("GroupId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("GroupId1")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
@@ -168,13 +162,9 @@ namespace KhosuRoom.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("AppUserId");
-
-                    b.HasIndex("GroupId1");
+                    b.HasIndex("GroupId");
 
                     b.HasIndex("TeacherId");
-
-                    b.HasIndex("GroupId", "DueDate");
 
                     b.ToTable("Assignments");
                 });
@@ -190,13 +180,13 @@ namespace KhosuRoom.DataAccess.Migrations
 
                     b.Property<string>("FileName")
                         .IsRequired()
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
 
                     b.Property<string>("FileUrl")
                         .IsRequired()
-                        .HasMaxLength(1000)
-                        .HasColumnType("nvarchar(1000)");
+                        .HasMaxLength(2000)
+                        .HasColumnType("nvarchar(2000)");
 
                     b.Property<DateTime>("UploadedDate")
                         .HasColumnType("datetime2");
@@ -285,11 +275,12 @@ namespace KhosuRoom.DataAccess.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("AppUserId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<Guid>("AssignmentId")
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Comment")
+                        .HasMaxLength(2000)
+                        .HasColumnType("nvarchar(2000)");
 
                     b.Property<string>("CreateBy")
                         .IsRequired()
@@ -305,26 +296,29 @@ namespace KhosuRoom.DataAccess.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Feedback")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(2000)
+                        .HasColumnType("nvarchar(2000)");
 
-                    b.Property<int?>("Grade")
-                        .HasColumnType("int");
+                    b.Property<decimal?>("Grade")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<DateTime?>("GradedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("GradedByTeacherId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
-                    b.Property<DateTime?>("LastUpdatedAtUtc")
-                        .HasColumnType("datetime2");
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
 
                     b.Property<Guid>("StudentId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime>("SubmittedDate")
+                    b.Property<DateTime?>("SubmittedAt")
                         .HasColumnType("datetime2");
-
-                    b.Property<string>("Text")
-                        .HasMaxLength(8000)
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UpdateBy")
                         .HasColumnType("nvarchar(max)");
@@ -334,7 +328,7 @@ namespace KhosuRoom.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("AppUserId");
+                    b.HasIndex("GradedByTeacherId");
 
                     b.HasIndex("StudentId");
 
@@ -357,8 +351,8 @@ namespace KhosuRoom.DataAccess.Migrations
 
                     b.Property<string>("FileUrl")
                         .IsRequired()
-                        .HasMaxLength(1000)
-                        .HasColumnType("nvarchar(1000)");
+                        .HasMaxLength(2000)
+                        .HasColumnType("nvarchar(2000)");
 
                     b.Property<Guid>("SubmissionId")
                         .HasColumnType("uniqueidentifier");
@@ -506,22 +500,14 @@ namespace KhosuRoom.DataAccess.Migrations
 
             modelBuilder.Entity("KhosuRoom.Core.Entities.Assignment", b =>
                 {
-                    b.HasOne("KhosuRoom.Core.Entities.AppUser", null)
-                        .WithMany("CreatedAssignments")
-                        .HasForeignKey("AppUserId");
-
                     b.HasOne("KhosuRoom.Core.Entities.Group", "Group")
-                        .WithMany()
+                        .WithMany("Assignments")
                         .HasForeignKey("GroupId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("KhosuRoom.Core.Entities.Group", null)
-                        .WithMany("CreatedAssignments")
-                        .HasForeignKey("GroupId1");
-
                     b.HasOne("KhosuRoom.Core.Entities.AppUser", "Teacher")
-                        .WithMany()
+                        .WithMany("Assignments")
                         .HasForeignKey("TeacherId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
@@ -563,23 +549,26 @@ namespace KhosuRoom.DataAccess.Migrations
 
             modelBuilder.Entity("KhosuRoom.Core.Entities.Submission", b =>
                 {
-                    b.HasOne("KhosuRoom.Core.Entities.AppUser", null)
-                        .WithMany("Submissions")
-                        .HasForeignKey("AppUserId");
-
                     b.HasOne("KhosuRoom.Core.Entities.Assignment", "Assignment")
                         .WithMany("Submissions")
                         .HasForeignKey("AssignmentId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("KhosuRoom.Core.Entities.AppUser", "GradedByTeacher")
+                        .WithMany("GradedSubmissions")
+                        .HasForeignKey("GradedByTeacherId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
                     b.HasOne("KhosuRoom.Core.Entities.AppUser", "Student")
-                        .WithMany()
+                        .WithMany("Submissions")
                         .HasForeignKey("StudentId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Assignment");
+
+                    b.Navigation("GradedByTeacher");
 
                     b.Navigation("Student");
                 });
@@ -587,7 +576,7 @@ namespace KhosuRoom.DataAccess.Migrations
             modelBuilder.Entity("KhosuRoom.Core.Entities.SubmissionAttachment", b =>
                 {
                     b.HasOne("KhosuRoom.Core.Entities.Submission", "Submission")
-                        .WithMany("SubmissionAttachments")
+                        .WithMany("Attachments")
                         .HasForeignKey("SubmissionId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -648,7 +637,9 @@ namespace KhosuRoom.DataAccess.Migrations
 
             modelBuilder.Entity("KhosuRoom.Core.Entities.AppUser", b =>
                 {
-                    b.Navigation("CreatedAssignments");
+                    b.Navigation("Assignments");
+
+                    b.Navigation("GradedSubmissions");
 
                     b.Navigation("GroupMembers");
 
@@ -664,14 +655,14 @@ namespace KhosuRoom.DataAccess.Migrations
 
             modelBuilder.Entity("KhosuRoom.Core.Entities.Group", b =>
                 {
-                    b.Navigation("CreatedAssignments");
+                    b.Navigation("Assignments");
 
                     b.Navigation("Members");
                 });
 
             modelBuilder.Entity("KhosuRoom.Core.Entities.Submission", b =>
                 {
-                    b.Navigation("SubmissionAttachments");
+                    b.Navigation("Attachments");
                 });
 #pragma warning restore 612, 618
         }

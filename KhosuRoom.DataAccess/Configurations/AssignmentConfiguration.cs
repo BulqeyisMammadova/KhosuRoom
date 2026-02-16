@@ -7,26 +7,22 @@ internal class AssignmentConfiguration : IEntityTypeConfiguration<Assignment>
 {
     public void Configure(EntityTypeBuilder<Assignment> builder)
     {
-        builder.Property(x => x.Title)
-               .IsRequired()
-               .HasMaxLength(200);
+        builder.Property(x => x.Title).IsRequired().HasMaxLength(200);
+        builder.Property(x => x.Description).HasMaxLength(4000);
 
-        builder.Property(x => x.Description)
-               .HasMaxLength(4000);
+        builder.HasOne(a => a.Teacher)
+            .WithMany(u => u.Assignments)
+            .HasForeignKey(a => a.TeacherId)
+            .OnDelete(DeleteBehavior.Restrict);
 
-        builder.Property(x => x.DueDate)
-               .IsRequired();
+        builder.HasMany(x => x.Attachments)
+            .WithOne(x => x.Assignment!)
+            .HasForeignKey(x => x.AssignmentId)
+            .OnDelete(DeleteBehavior.Cascade);
 
-        builder.HasOne(x => x.Group)
-               .WithMany()
-               .HasForeignKey(x => x.GroupId)
-               .OnDelete(DeleteBehavior.Restrict);
-
-        builder.HasOne(x => x.Teacher)
-               .WithMany()
-               .HasForeignKey(x => x.TeacherId)
-               .OnDelete(DeleteBehavior.Restrict);
-
-        builder.HasIndex(x => new { x.GroupId, x.DueDate });
+        builder.HasMany(x => x.Submissions)
+            .WithOne(x => x.Assignment!)
+            .HasForeignKey(x => x.AssignmentId)
+            .OnDelete(DeleteBehavior.Cascade);
     }
 }

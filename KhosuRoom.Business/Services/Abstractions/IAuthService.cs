@@ -1,5 +1,6 @@
 ﻿using KhosuRoom.Business.Dtos.ResultDtos;
 using KhosuRoom.Business.Dtos.UserDtos;
+using Microsoft.AspNetCore.Http;
 
 namespace KhosuRoom.Business.Services.Abstractions;
 
@@ -9,3 +10,5 @@ public interface IAuthService
     Task<ResultDto<AccessTokenDto>> RefreshTokenAsync(string refreshToken);
 
 }
+
+

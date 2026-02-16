@@ -7,6 +7,6 @@ public class Group : BaseAutitableEntity
     public string Name { get; set; } = null!;
     public string Code { get; set; } = null!;
     public ICollection<GroupMember> Members { get; set; } = [];
-    public ICollection<Assignment> CreatedAssignments { get; set; } = [];
+    public ICollection<Assignment> Assignments { get; set; } = [];
 
 }

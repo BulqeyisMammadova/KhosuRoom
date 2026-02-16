@@ -2,6 +2,6 @@
 
 public class GradeSubmissionDto
 {
-    public int Grade { get; set; }
+    public decimal Grade { get; set; }
     public string? Feedback { get; set; }
 }

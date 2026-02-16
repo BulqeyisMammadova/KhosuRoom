@@ -5,8 +5,13 @@ namespace KhosuRoom.Business.Services.Abstractions;
 
 public interface ISubmissionService
 {
-    Task<ResultDto> Submit(Guid assignmentId, SubmissionSubmitDto dto);
-    Task<ResultDto<IEnumerable<SubmissionGetDto>>> GetAllByAssignment(Guid assignmentId);
-    Task<ResultDto> Grade(Guid submissionId, GradeSubmissionDto dto);
+    Task<ResultDto> SubmitAsync(SubmissionSubmitFormDto dto);
+    Task<ResultDto<SubmissionGetDto>> GetMySubmissionAsync(Guid assignmentId);
+    Task<ResultDto<IEnumerable<SubmissionGetDto>>> GetSubmissionsByAssignmentAsync(Guid assignmentId);
+    Task<ResultDto> GradeAsync(Guid submissionId, GradeSubmissionDto dto);
 
 }
+
+
+    
+    

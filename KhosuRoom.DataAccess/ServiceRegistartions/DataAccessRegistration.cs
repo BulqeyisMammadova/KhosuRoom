@@ -47,5 +47,6 @@ public static class DataAccessRegistration
         services.AddScoped<ISubmissionRepository, SubmissionRepository>();
         services.AddScoped<ISubmissionAttachmentRepository, SubmissionAttachmentRepository>();
         services.AddScoped<IContextInitalizer, DbContextInitalizer>();
+
     }
 }

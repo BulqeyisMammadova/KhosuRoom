@@ -179,6 +179,22 @@
   },
   {
     "ContainingType": "KhosuRoom.Presentation.Controllers.AssignmentsController",
+    "Method": "Dashboard",
+    "RelativePath": "api/Assignments/{assignmentId}/dashboard",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "assignmentId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "KhosuRoom.Presentation.Controllers.AssignmentsController",
     "Method": "Delete",
     "RelativePath": "api/Assignments/{id}",
     "HttpMethod": "DELETE",

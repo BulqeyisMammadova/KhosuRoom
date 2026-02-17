@@ -101,7 +101,7 @@ internal class AssignmentService : IAssignmentService
 
         _mapper.Map(dto, assignment);
 
-        // Variant B: dueDate update => status recalc
+        //Variant B: dueDate update => status recalc
         foreach (var s in assignment.Submissions)
         {
             if (s.SubmittedAt is null) continue;

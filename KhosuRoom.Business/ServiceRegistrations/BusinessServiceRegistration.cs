@@ -58,5 +58,6 @@ public static class BusinessServiceRegistration
         services.AddScoped<IAssignmentService, AssignmentService>();
         services.AddScoped<ISubmissionService, SubmissionService>();
         services.AddScoped<IDashboardService, DashboardService>();
+        services.AddScoped<IAttendanceService, AttendanceService>();
     }
 }

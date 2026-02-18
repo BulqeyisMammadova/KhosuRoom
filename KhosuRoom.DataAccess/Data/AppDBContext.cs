@@ -42,5 +42,8 @@ internal class AppDBContext : IdentityDbContext<AppUser, IdentityRole<Guid>, Gui
     public DbSet<AssignmentAttachment> AssignmentAttachments { get; set; } = null!;
     public DbSet<Submission> Submissions { get; set; } = null!;
     public DbSet<SubmissionAttachment> SubmissionAttachments { get; set; } = null!;
+    public DbSet<AttendanceSession> AttendanceSessions { get; set; } = null!;
+    public DbSet<AttendanceRecord> AttendanceRecords { get; set; } = null!;
+
 
 }

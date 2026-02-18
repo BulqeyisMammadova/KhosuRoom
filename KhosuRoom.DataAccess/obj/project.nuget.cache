@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "NiUcpxjD5bA=",
+  "dgSpecHash": "0NibCTBQQ58=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Balqeyis\\Desktop\\FinalProject\\KhosuRoom.DataAccess\\KhosuRoom.DataAccess.csproj",
+  "projectFilePath": "C:\\Users\\Balqeyis\\Desktop\\KhosuRoom\\KhosuRoom.DataAccess\\KhosuRoom.DataAccess.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Balqeyis\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\Balqeyis\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

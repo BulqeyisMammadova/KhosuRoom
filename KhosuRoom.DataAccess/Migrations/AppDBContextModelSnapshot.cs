@@ -198,6 +198,78 @@ namespace KhosuRoom.DataAccess.Migrations
                     b.ToTable("AssignmentAttachments");
                 });
 
+            modelBuilder.Entity("KhosuRoom.Core.Entities.AttendanceRecord", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("AttendanceSessionId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
+
+                    b.Property<Guid>("StudentId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("StudentId");
+
+                    b.HasIndex("AttendanceSessionId", "StudentId")
+                        .IsUnique();
+
+                    b.ToTable("AttendanceRecords");
+                });
+
+            modelBuilder.Entity("KhosuRoom.Core.Entities.AttendanceSession", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("CreateBy")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateOnly>("Date")
+                        .HasColumnType("date");
+
+                    b.Property<string>("DeleteBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("DeleteDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("GroupId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<Guid>("TeacherId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("UpdateBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("UpdateDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("TeacherId");
+
+                    b.HasIndex("GroupId", "Date")
+                        .IsUnique();
+
+                    b.ToTable("AttendanceSessions");
+                });
+
             modelBuilder.Entity("KhosuRoom.Core.Entities.Group", b =>
                 {
                     b.Property<Guid>("Id")
@@ -528,6 +600,44 @@ namespace KhosuRoom.DataAccess.Migrations
                     b.Navigation("Assignment");
                 });
 
+            modelBuilder.Entity("KhosuRoom.Core.Entities.AttendanceRecord", b =>
+                {
+                    b.HasOne("KhosuRoom.Core.Entities.AttendanceSession", "AttendanceSession")
+                        .WithMany("Records")
+                        .HasForeignKey("AttendanceSessionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("KhosuRoom.Core.Entities.AppUser", "Student")
+                        .WithMany()
+                        .HasForeignKey("StudentId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("AttendanceSession");
+
+                    b.Navigation("Student");
+                });
+
+            modelBuilder.Entity("KhosuRoom.Core.Entities.AttendanceSession", b =>
+                {
+                    b.HasOne("KhosuRoom.Core.Entities.Group", "Group")
+                        .WithMany("AttendanceSessions")
+                        .HasForeignKey("GroupId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("KhosuRoom.Core.Entities.AppUser", "Teacher")
+                        .WithMany()
+                        .HasForeignKey("TeacherId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Group");
+
+                    b.Navigation("Teacher");
+                });
+
             modelBuilder.Entity("KhosuRoom.Core.Entities.GroupMember", b =>
                 {
                     b.HasOne("KhosuRoom.Core.Entities.Group", "Group")
@@ -653,9 +763,16 @@ namespace KhosuRoom.DataAccess.Migrations
                     b.Navigation("Submissions");
                 });
 
+            modelBuilder.Entity("KhosuRoom.Core.Entities.AttendanceSession", b =>
+                {
+                    b.Navigation("Records");
+                });
+
             modelBuilder.Entity("KhosuRoom.Core.Entities.Group", b =>
                 {
                     b.Navigation("Assignments");
+
+                    b.Navigation("AttendanceSessions");
 
                     b.Navigation("Members");
                 });

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "xIrmAcY1UFE=",
+  "dgSpecHash": "9FXTNaS+6H4=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Balqeyis\\Desktop\\FinalProject\\KhosuRoom.Presentation\\KhosuRoom.Presentation.csproj",
+  "projectFilePath": "C:\\Users\\Balqeyis\\Desktop\\KhosuRoom\\KhosuRoom.Presentation\\KhosuRoom.Presentation.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Balqeyis\\.nuget\\packages\\automapper\\16.0.0\\automapper.16.0.0.nupkg.sha512",
     "C:\\Users\\Balqeyis\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Balqeyis\\Desktop\\FinalProject\\KhosuRoom.Core\\KhosuRoom.Core.csproj": {}
+    "C:\\Users\\Balqeyis\\Desktop\\KhosuRoom\\KhosuRoom.Core\\KhosuRoom.Core.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Balqeyis\\Desktop\\FinalProject\\KhosuRoom.Core\\KhosuRoom.Core.csproj": {
+    "C:\\Users\\Balqeyis\\Desktop\\KhosuRoom\\KhosuRoom.Core\\KhosuRoom.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Balqeyis\\Desktop\\FinalProject\\KhosuRoom.Core\\KhosuRoom.Core.csproj",
+        "projectUniqueName": "C:\\Users\\Balqeyis\\Desktop\\KhosuRoom\\KhosuRoom.Core\\KhosuRoom.Core.csproj",
         "projectName": "KhosuRoom.Core",
-        "projectPath": "C:\\Users\\Balqeyis\\Desktop\\FinalProject\\KhosuRoom.Core\\KhosuRoom.Core.csproj",
+        "projectPath": "C:\\Users\\Balqeyis\\Desktop\\KhosuRoom\\KhosuRoom.Core\\KhosuRoom.Core.csproj",
         "packagesPath": "C:\\Users\\Balqeyis\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Balqeyis\\Desktop\\FinalProject\\KhosuRoom.Core\\obj\\",
+        "outputPath": "C:\\Users\\Balqeyis\\Desktop\\KhosuRoom\\KhosuRoom.Core\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

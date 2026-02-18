@@ -7,5 +7,3 @@ namespace KhosuRoom.DataAccess.Repository.Implementations;
 internal class SubmissionRepository(AppDBContext _context) : Repository<Submission>(_context), ISubmissionRepository
 {
 }
-
-

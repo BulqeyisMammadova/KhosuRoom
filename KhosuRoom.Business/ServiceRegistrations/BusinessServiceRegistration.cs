@@ -57,5 +57,6 @@ public static class BusinessServiceRegistration
         services.AddScoped<ICloudinaryService, CloudinaryService>();
         services.AddScoped<IAssignmentService, AssignmentService>();
         services.AddScoped<ISubmissionService, SubmissionService>();
+        services.AddScoped<IDashboardService, DashboardService>();
     }
 }

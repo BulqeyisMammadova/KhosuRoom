@@ -9,4 +9,5 @@ public class StudentSubmissionDto
     public string? Status { get; set; } 
     public DateTime? SubmittedAt { get; set; }
     public decimal? Grade { get; set; }
+    public decimal? ProgressPercent { get; set; }
 }

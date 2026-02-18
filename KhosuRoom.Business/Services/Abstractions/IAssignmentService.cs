@@ -11,5 +11,5 @@ public interface IAssignmentService
     Task<ResultDto> DeleteAssiggn(Guid id);
     Task<ResultDto<AssignmentGetDto>> GetByIdAssiggn(Guid id);
     Task<ResultDto<IEnumerable<AssignmentGetDto>>> GetAllAssiggn(Guid groupId);
-    Task<ResultDto<AssignmentDashboardDto>> GetDashboardAsync(Guid assignmentId);
+   
 }

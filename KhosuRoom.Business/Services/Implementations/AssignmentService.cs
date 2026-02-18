@@ -55,6 +55,17 @@ internal class AssignmentService : IAssignmentService
 
         if (!isTeacher) throw new LoginException("Unauthorized");
     }
+    private async Task EnsureMemberAsync(Guid groupId)
+    {
+        var userId = CurrentUserId();
+
+        var isMember = await _groupMemberRepo.AnyAsync(x =>
+            x.GroupId == groupId &&
+            x.UserId == userId);
+
+        if (!isMember)
+            throw new LoginException("Unauthorized");
+    }
 
     public async Task<ResultDto> CreateAssiggn(AssignmentCreateFormDto dto)
     {
@@ -170,11 +181,14 @@ internal class AssignmentService : IAssignmentService
 
     public async Task<ResultDto<AssignmentGetDto>> GetByIdAssiggn(Guid id)
     {
+
         var assignment = await _assignmentRepo.GetAll()
             .Include(a => a.Attachments)
             .Include(a => a.Submissions)
             .AsNoTracking()
             .FirstOrDefaultAsync(a => a.Id == id);
+        await EnsureMemberAsync(assignment!.GroupId);
+
 
         if (assignment is null) throw new NotFoundExceptions("Assignment not found");
 
@@ -183,6 +197,8 @@ internal class AssignmentService : IAssignmentService
 
     public async Task<ResultDto<IEnumerable<AssignmentGetDto>>> GetAllAssiggn(Guid groupId)
     {
+        await EnsureMemberAsync(groupId);
+
         var list = await _assignmentRepo.GetAll()
             .Where(a => a.GroupId == groupId)
             .Include(a => a.Attachments)
@@ -193,95 +209,6 @@ internal class AssignmentService : IAssignmentService
         return new ResultDto<IEnumerable<AssignmentGetDto>>(_mapper.Map<IEnumerable<AssignmentGetDto>>(list));
     }
 
-    public async Task<ResultDto<AssignmentDashboardDto>> GetDashboardAsync(Guid assignmentId)
-    {
-        var assignment = await _assignmentRepo.GetAll()
-            .AsNoTracking()
-            .FirstOrDefaultAsync(a => a.Id == assignmentId);
-
-        if (assignment is null) throw new NotFoundExceptions("Assignment not found");
-
-        await EnsureTeacherAsync(assignment.GroupId);
-
-       
-        var students = await _groupMemberRepo.GetAll()
-            .Where(gm => gm.GroupId == assignment.GroupId && gm.Role == GroupRole.Student)
-            .Include(gm => gm.User)
-            .AsNoTracking()
-            .Select(gm => new
-            {
-                gm.UserId,
-                FullName = gm.User.FirstName + " " + gm.User.LastName,
-                Email = gm.User.Email
-            })
-            .ToListAsync();
-
-
-        var submissions = await _submissionRepo.GetAll()
-            .Where(s => s.AssignmentId == assignmentId)
-            .AsNoTracking()
-            .ToListAsync();
-
-        var map = submissions
-            .GroupBy(s => s.StudentId)
-            .ToDictionary(g => g.Key, g => g.OrderByDescending(x => x.SubmittedAt).First());
-
-        int submitted = 0, late = 0, notSubmitted = 0;
-        var rows = new List<StudentSubmissionDto>();
-
-        foreach (var st in students)
-        {
-            if (!map.TryGetValue(st.UserId, out var sub) || sub.SubmittedAt is null || sub.Status == SubmissionStatus.Draft)
-            {
-                notSubmitted++;
-                rows.Add(new StudentSubmissionDto
-                {
-                    StudentId = st.UserId,
-                    FullName = st.FullName,
-                    Email = st.Email,
-                    IsSubmitted = false,
-                    Status = null,
-                    SubmittedAt = null,
-                    Grade = null
-                });
-                continue;
-            }
-
-            submitted++;
-            if (sub.Status == SubmissionStatus.Late) late++;
-
-            rows.Add(new StudentSubmissionDto
-            {
-                StudentId = st.UserId,
-                FullName = st.FullName,
-                Email = st.Email,
-                IsSubmitted = true,
-                Status = sub.Status.ToString(),
-                SubmittedAt = sub.SubmittedAt,
-                Grade = sub.Grade
-            });
-        }
-
-        var dto = new AssignmentDashboardDto
-        {
-            AssignmentId = assignment.Id,
-            GroupId = assignment.GroupId,
-            Title = assignment.Title,
-            DueDate = assignment.DueDate,
-
-            TotalStudents = students.Count,
-            SubmittedCount = submitted,
-            LateCount = late,
-            NotSubmittedCount = notSubmitted,
-
-            Students = rows
-                .OrderBy(r => r.IsSubmitted) 
-                .ThenBy(r => r.FullName)
-                .ToList()
-        };
-
-        return new ResultDto<AssignmentDashboardDto>(dto);
-    }
 }
 
 

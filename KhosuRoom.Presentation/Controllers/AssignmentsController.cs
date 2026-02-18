@@ -45,7 +45,5 @@ public class AssignmentsController : ControllerBase
         => Ok(await _service.GetAllAssiggn(groupId));
 
 
-    [HttpGet("{assignmentId:guid}/dashboard")]
-    public async Task<IActionResult> Dashboard(Guid assignmentId)
-        => Ok(await _service.GetDashboardAsync(assignmentId));
+  
 }

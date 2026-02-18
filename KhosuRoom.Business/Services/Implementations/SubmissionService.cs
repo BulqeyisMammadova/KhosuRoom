@@ -41,10 +41,15 @@ internal class SubmissionService : ISubmissionService
         return Guid.Parse(idStr);
     }
 
-    private async Task EnsureMemberAsync(Guid groupId, Guid userId)
+    private async Task EnsureStudentAsync(Guid groupId, Guid userId)
     {
-        var isMember = await _groupMemberRepo.AnyAsync(x => x.GroupId == groupId && x.UserId == userId);
-        if (!isMember) throw new LoginException("Unauthorized");
+        var isStudent = await _groupMemberRepo.AnyAsync(x =>
+            x.GroupId == groupId &&
+            x.UserId == userId &&
+            x.Role == GroupRole.Student);
+
+        if (!isStudent)
+            throw new LoginException("Only students can submit.");
     }
 
     private async Task EnsureTeacherAsync(Guid groupId, Guid userId)
@@ -61,7 +66,8 @@ internal class SubmissionService : ISubmissionService
         var assignment = await _assignmentRepo.GetByIdAsync(dto.AssignmentId);
         if (assignment is null) throw new NotFoundExceptions("Assignment not found");
 
-        await EnsureMemberAsync(assignment.GroupId, studentId);
+        await EnsureStudentAsync(assignment.GroupId, studentId);
+
 
         var submission = await _submissionRepo.GetAll()
             .FirstOrDefaultAsync(s => s.AssignmentId == dto.AssignmentId && s.StudentId == studentId);

@@ -179,22 +179,6 @@
   },
   {
     "ContainingType": "KhosuRoom.Presentation.Controllers.AssignmentsController",
-    "Method": "Dashboard",
-    "RelativePath": "api/Assignments/{assignmentId}/dashboard",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "assignmentId",
-        "Type": "System.Guid",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "KhosuRoom.Presentation.Controllers.AssignmentsController",
     "Method": "Delete",
     "RelativePath": "api/Assignments/{id}",
     "HttpMethod": "DELETE",
@@ -268,6 +252,38 @@
       {
         "Name": "refreshToken",
         "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "KhosuRoom.Presentation.Controllers.DashboardsController",
+    "Method": "Assignment",
+    "RelativePath": "api/Dashboards/assignment/{assignmentId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "assignmentId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "KhosuRoom.Presentation.Controllers.DashboardsController",
+    "Method": "Student",
+    "RelativePath": "api/Dashboards/student/{groupId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "groupId",
+        "Type": "System.Guid",
         "IsRequired": true
       }
     ],

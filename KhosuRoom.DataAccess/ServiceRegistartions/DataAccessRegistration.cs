@@ -49,6 +49,7 @@ public static class DataAccessRegistration
         services.AddScoped<IContextInitalizer, DbContextInitalizer>();
         services.AddScoped<IAttendanceRecordRepository, AttendanceRecordRepository>();
         services.AddScoped<IAttendanceSessionRepository, AttendanceSessionRepository>();
+        services.AddScoped<INotificationRepository, NotificationRepository>();
 
     }
 }

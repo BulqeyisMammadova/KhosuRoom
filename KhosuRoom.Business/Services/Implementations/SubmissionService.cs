@@ -21,8 +21,9 @@ internal class SubmissionService : ISubmissionService
     private readonly ICloudinaryService _cloudinary;
     private readonly IMapper _mapper;
     private readonly IHttpContextAccessor _http;
+    private readonly INotificationService _notificationService;
 
-    public SubmissionService(ISubmissionRepository submissionRepo, ISubmissionAttachmentRepository attRepo, IAssigmentRepository assignmentRepo, IGroupMemberRepository groupMemberRepo, ICloudinaryService cloudinary, IMapper mapper, IHttpContextAccessor http)
+    public SubmissionService(ISubmissionRepository submissionRepo, ISubmissionAttachmentRepository attRepo, IAssigmentRepository assignmentRepo, IGroupMemberRepository groupMemberRepo, ICloudinaryService cloudinary, IMapper mapper, IHttpContextAccessor http, INotificationService notificationService)
     {
         _submissionRepo = submissionRepo;
         _attRepo = attRepo;
@@ -31,6 +32,7 @@ internal class SubmissionService : ISubmissionService
         _cloudinary = cloudinary;
         _mapper = mapper;
         _http = http;
+        _notificationService = notificationService;
     }
 
     private Guid CurrentUserId()
@@ -175,6 +177,14 @@ internal class SubmissionService : ISubmissionService
 
         _submissionRepo.Update(submission);
         await _submissionRepo.SaveChangesAsync();
+        await _notificationService.CreateForUsersAsync(
+       new[] { submission.StudentId },
+       "Grade Published",
+       $"{submission.Assignment.Title}: {dto.Grade} points.",
+       NotificationType.GradePublished,
+       submission.Assignment.GroupId,
+       $"/groups/{submission.Assignment.GroupId}/assignments/{submission.AssignmentId}"
+   );
 
         return new ResultDto();
     }

@@ -226,6 +226,91 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "KhosuRoom.Api.Controllers.AttendanceController",
+    "Method": "GetGroupSessions",
+    "RelativePath": "api/Attendance/groups/{groupId}/sessions",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "groupId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "KhosuRoom.Api.Controllers.AttendanceController",
+    "Method": "My",
+    "RelativePath": "api/Attendance/my/{groupId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "groupId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "KhosuRoom.Api.Controllers.AttendanceController",
+    "Method": "CreateSession",
+    "RelativePath": "api/Attendance/sessions",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "KhosuRoom.Business.Dtos.AttendanceDtos.CreateAttendanceSessionDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "KhosuRoom.Api.Controllers.AttendanceController",
+    "Method": "Save",
+    "RelativePath": "api/Attendance/sessions/{sessionId}/records",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "sessionId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "KhosuRoom.Business.Dtos.AttendanceDtos.SaveAttendanceDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "KhosuRoom.Api.Controllers.AttendanceController",
+    "Method": "GetTable",
+    "RelativePath": "api/Attendance/sessions/{sessionId}/table",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "sessionId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "KhosuRoom.Presentation.Controllers.AuthController",
     "Method": "Login",
     "RelativePath": "api/Auth/Login",

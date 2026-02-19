@@ -21,8 +21,9 @@ internal class AttendanceService : IAttendanceService
     private readonly IGroupRepository _groupRepo;
     private readonly IHttpContextAccessor _http;
     private readonly IMapper _mapper;
+    private readonly INotificationService _notificationService;
 
-    public AttendanceService(IAttendanceSessionRepository sessionRepo, IAttendanceRecordRepository recordRepo, IGroupMemberRepository groupMemberRepo, IGroupRepository groupRepo, IHttpContextAccessor http, IMapper mapper)
+    public AttendanceService(IAttendanceSessionRepository sessionRepo, IAttendanceRecordRepository recordRepo, IGroupMemberRepository groupMemberRepo, IGroupRepository groupRepo, IHttpContextAccessor http, IMapper mapper, INotificationService notificationService)
     {
         _sessionRepo = sessionRepo;
         _recordRepo = recordRepo;
@@ -30,6 +31,7 @@ internal class AttendanceService : IAttendanceService
         _groupRepo = groupRepo;
         _http = http;
         _mapper = mapper;
+        _notificationService = notificationService;
     }
 
     private Guid CurrentUserId =>
@@ -74,6 +76,15 @@ internal class AttendanceService : IAttendanceService
         }
 
         await _recordRepo.SaveChangesAsync();
+        await _notificationService.CreateForUsersAsync(
+       studentIds,
+       "Attendance Session Opened",
+       $"Attendance session for {dto.Date:yyyy-MM-dd} has been created.",
+       NotificationType.AttendanceSessionCreated,
+       dto.GroupId,
+       $"/groups/{dto.GroupId}/attendance"
+   );
+
         return new();
     }
 
@@ -144,9 +155,11 @@ internal class AttendanceService : IAttendanceService
 
             rec.Status = item.Status;
             _recordRepo.Update(rec);
+
         }
 
         await _recordRepo.SaveChangesAsync();
+
         return new ResultDto();
     }
 

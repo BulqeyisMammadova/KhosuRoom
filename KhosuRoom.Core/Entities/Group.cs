@@ -9,5 +9,6 @@ public class Group : BaseAutitableEntity
     public ICollection<GroupMember> Members { get; set; } = [];
     public ICollection<Assignment> Assignments { get; set; } = [];
     public ICollection<AttendanceSession> AttendanceSessions { get; set; } = [];
+    public ICollection<Notification> Notifications { get; set; } = [];
 
 }

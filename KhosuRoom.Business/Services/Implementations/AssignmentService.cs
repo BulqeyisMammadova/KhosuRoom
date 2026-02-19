@@ -23,8 +23,9 @@ internal class AssignmentService : IAssignmentService
     private readonly ICloudinaryService _cloudinary;
     private readonly IMapper _mapper;
     private readonly IHttpContextAccessor _http;
+    private readonly INotificationService _notificationService;
 
-    public AssignmentService(IAssigmentRepository assignmentRepo, IAssignmentAttachmentRepository attRepo, IGroupRepository groupRepo, IGroupMemberRepository groupMemberRepo, ICloudinaryService cloudinary, IMapper mapper, IHttpContextAccessor http, ISubmissionRepository submissionRepo)
+    public AssignmentService(IAssigmentRepository assignmentRepo, IAssignmentAttachmentRepository attRepo, IGroupRepository groupRepo, IGroupMemberRepository groupMemberRepo, ICloudinaryService cloudinary, IMapper mapper, IHttpContextAccessor http, ISubmissionRepository submissionRepo,INotificationService notificationService)
     {
         _assignmentRepo = assignmentRepo;
         _attRepo = attRepo;
@@ -34,6 +35,7 @@ internal class AssignmentService : IAssignmentService
         _mapper = mapper;
         _http = http;
         _submissionRepo = submissionRepo;
+        _notificationService = notificationService;
     }
 
     private Guid CurrentUserId()
@@ -80,6 +82,21 @@ internal class AssignmentService : IAssignmentService
         await _assignmentRepo.AddAsync(assignment);
         await _assignmentRepo.SaveChangesAsync();
 
+        
+        var studentIds = await _groupMemberRepo.GetAll()
+            .Where(x => x.GroupId == assignment.GroupId && x.Role == GroupRole.Student)
+            .Select(x => x.UserId)
+            .ToListAsync();
+
+        await _notificationService.CreateForUsersAsync(
+            studentIds,
+            "New Assignment",
+            $"{assignment.Title} created.",
+            NotificationType.AssignmentCreated,
+            assignment.GroupId,
+            $"/groups/{assignment.GroupId}/assignments/{assignment.Id}"
+        );
+
         if (dto.Files is not null && dto.Files.Count > 0)
         {
             foreach (var file in dto.Files)
@@ -100,6 +117,7 @@ internal class AssignmentService : IAssignmentService
         return new ResultDto();
     }
 
+
     public async Task<ResultDto> UpdateAssiggn(AssignmentUpdateFormDto dto)
     {
         var assignment = await _assignmentRepo.GetAll()
@@ -112,7 +130,7 @@ internal class AssignmentService : IAssignmentService
 
         _mapper.Map(dto, assignment);
 
-        //Variant B: dueDate update => status recalc
+        
         foreach (var s in assignment.Submissions)
         {
             if (s.SubmittedAt is null) continue;
@@ -123,7 +141,23 @@ internal class AssignmentService : IAssignmentService
         _assignmentRepo.Update(assignment);
         await _assignmentRepo.SaveChangesAsync();
 
-        
+
+        var studentIds = await _groupMemberRepo.GetAll()
+    .Where(x => x.GroupId == assignment.GroupId && x.Role == GroupRole.Student)
+    .Select(x => x.UserId)
+    .ToListAsync();
+
+        await _notificationService.CreateForUsersAsync(
+            studentIds,
+            "Assignment Updated",
+            $"{assignment.Title} updated.",
+            NotificationType.AssignmentUpdated,
+            assignment.GroupId,
+            $"/groups/{assignment.GroupId}/assignments/{assignment.Id}"
+        );
+
+
+
         if (dto.Files is not null && dto.Files.Count > 0)
         {
             var oldAtts = await _attRepo.GetAll()

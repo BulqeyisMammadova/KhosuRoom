@@ -1,4 +1,6 @@
-﻿namespace KhosuRoom.Business.Dtos.DashboardDtos;
+﻿using KhosuRoom.Core.Enums;
+
+namespace KhosuRoom.Business.Dtos.DashboardDtos;
 
 public class StudentSubmissionDto
 {
@@ -6,7 +8,7 @@ public class StudentSubmissionDto
     public string FullName { get; set; } = null!;
     public string? Email { get; set; }
     public bool IsSubmitted { get; set; }
-    public string? Status { get; set; } 
+    public SubmissionStatus? Status { get; set; }
     public DateTime? SubmittedAt { get; set; }
     public decimal? Grade { get; set; }
     public decimal? ProgressPercent { get; set; }

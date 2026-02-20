@@ -116,7 +116,7 @@ internal class DashboardService : IDashboardService
                     FullName = st.FullName,
                     Email = st.Email,
                     IsSubmitted = isSubmitted,
-                    Status = isSubmitted ? sub.Status.ToString() : "Draft",
+                    Status = sub.Status,
                     SubmittedAt = sub.SubmittedAt,
                     Grade = sub.Grade,
                     ProgressPercent = progress
@@ -130,7 +130,7 @@ internal class DashboardService : IDashboardService
                     FullName = st.FullName,
                     Email = st.Email,
                     IsSubmitted = false,
-                    Status = "NotSubmitted",
+                    Status = null,
                     SubmittedAt = null,
                     Grade = null,
                     ProgressPercent = 0
@@ -138,14 +138,14 @@ internal class DashboardService : IDashboardService
             }
         }
 
-        dto.SubmittedCount = dto.Students.Count(x => x.IsSubmitted && x.Status == SubmissionStatus.Submitted.ToString());
-        dto.LateCount = dto.Students.Count(x => x.IsSubmitted && x.Status == SubmissionStatus.Late.ToString());
+        dto.SubmittedCount = dto.Students.Count(x => x.IsSubmitted && x.Status == SubmissionStatus.Submitted);
+        dto.LateCount = dto.Students.Count(x => x.IsSubmitted && x.Status == SubmissionStatus.Late);
         dto.NotSubmittedCount = dto.Students.Count(x => !x.IsSubmitted);
 
        
         dto.Students = dto.Students
             .OrderBy(x => x.IsSubmitted) 
-            .ThenByDescending(x => x.Status == SubmissionStatus.Late.ToString())
+            .ThenByDescending(x => x.Status == SubmissionStatus.Late)
             .ThenBy(x => x.FullName)
             .ToList();
 

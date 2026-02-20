@@ -33,7 +33,7 @@ internal class NotificationConfiguration : IEntityTypeConfiguration<Notification
         builder.HasOne(x => x.Group)
             .WithMany(x => x.Notifications)
             .HasForeignKey(x => x.GroupId)
-            .OnDelete(DeleteBehavior.SetNull);
+            .OnDelete(DeleteBehavior.Cascade);
 
         builder.HasIndex(x => new { x.UserId, x.IsRead });
     }

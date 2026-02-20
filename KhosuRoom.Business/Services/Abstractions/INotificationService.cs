@@ -18,3 +18,4 @@ public interface INotificationService
         string? redirectUrl = null);
 
 }
+

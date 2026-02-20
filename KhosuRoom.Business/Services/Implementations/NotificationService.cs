@@ -6,6 +6,7 @@ using KhosuRoom.Business.Services.Abstractions;
 using KhosuRoom.Core.Enums;
 using KhosuRoom.DataAccess.Repository.Abstarctions;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -17,12 +18,16 @@ internal class NotificationService : INotificationService
     private readonly INotificationRepository _notificationRepository;
     private readonly IHttpContextAccessor _http;
     private readonly IMapper _mapper;
+    private readonly IEmailService _emailService;
+    private readonly UserManager<AppUser> _userManager;
 
-    public NotificationService(INotificationRepository notificationRepository, IHttpContextAccessor http, IMapper mapper)
+    public NotificationService(INotificationRepository notificationRepository, IHttpContextAccessor http, IMapper mapper, IEmailService emailService, UserManager<AppUser> userManager)
     {
         _notificationRepository = notificationRepository;
         _http = http;
         _mapper = mapper;
+        _emailService = emailService;
+        _userManager = userManager;
     }
 
     
@@ -75,27 +80,64 @@ internal class NotificationService : INotificationService
         return new();
     }
 
-    public async Task CreateForUsersAsync(IEnumerable<Guid> userIds, string title, string message, NotificationType type, Guid? groupId, string? redirectUrl = null)
+    public async Task CreateForUsersAsync(
+    IEnumerable<Guid> userIds,
+    string title,
+    string message,
+    NotificationType type,
+    Guid? groupId,
+    string? redirectUrl = null)
     {
         var ids = userIds?.Distinct().ToList() ?? [];
         if (ids.Count == 0) return;
 
+        var now = DateTime.UtcNow;
+
         foreach (var uid in ids)
         {
-            await _notificationRepository.AddAsync(new Notification
+            var notification = new Notification
             {
                 UserId = uid,
-                GroupId = (Guid)groupId!,
+                GroupId = (Guid)groupId,   
                 Title = title,
                 Message = message,
                 Type = type,
                 RedirectUrl = redirectUrl,
                 IsRead = false,
-                ReadAt = null
-            });
+                ReadAt = null,
+                CreateDate = now,
+                CreateBy = "SYSTEM"
+            };
+
+            await _notificationRepository.AddAsync(notification);
         }
 
         await _notificationRepository.SaveChangesAsync();
 
+        
+        var emails = await _userManager.Users
+            .Where(u => ids.Contains(u.Id) && u.Email != null)
+            .Select(u => u.Email!)
+            .ToListAsync();
+
+       
+        foreach (var email in emails)
+        {
+            try
+            {
+                var subject = $"KhosuRoom: {title}";
+                var body = $@"
+                <h3>{title}</h3>
+                <p>{message}</p>
+                {(redirectUrl is not null ? $"<p><a href='{redirectUrl}'>Open</a></p>" : "")}
+            ";
+
+                await _emailService.SendEmailAsync(email, subject, body);
+            }
+            catch
+            {
+                
+            }
+        }
     }
 }

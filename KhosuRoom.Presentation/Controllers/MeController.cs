@@ -12,10 +12,12 @@ namespace KhosuRoom.Presentation.Controllers;
 public class MeController : ControllerBase
 {
     private readonly IUserService _userService;
+    
 
     public MeController(IUserService userService)
     {
         _userService = userService;
+       
     }
 
     private Guid GetUserId()
@@ -43,4 +45,14 @@ public class MeController : ControllerBase
         var result = await _userService.ChangePasswordAsync(GetUserId(), dto);
         return Ok(result);
     }
+
+    //[HttpGet("email")]
+    //public async Task<IActionResult> GetEmail()
+    //{
+    //     await _emailService.SendEmailAsync("bulqeyis.mammadova@gmail.com","Test Email from KhosuRoom", "This is a test email sent from the KhosuRoom application.");
+    //    return Ok("OK");
+    //}
+
+
+
 }

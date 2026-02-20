@@ -60,5 +60,6 @@ public static class BusinessServiceRegistration
         services.AddScoped<IDashboardService, DashboardService>();
         services.AddScoped<IAttendanceService, AttendanceService>();
         services.AddScoped<INotificationService, NotificationService>();
+        services.AddScoped<IEmailService, EmailService>();
     }
 }

@@ -352,3 +352,6 @@ C:\Users\Balqeyis\Desktop\KhosuRoom\KhosuRoom.Presentation\obj\Debug\net8.0\refi
 C:\Users\Balqeyis\Desktop\KhosuRoom\KhosuRoom.Presentation\obj\Debug\net8.0\KhosuRoom.Presentation.pdb
 C:\Users\Balqeyis\Desktop\KhosuRoom\KhosuRoom.Presentation\obj\Debug\net8.0\KhosuRoom.Presentation.genruntimeconfig.cache
 C:\Users\Balqeyis\Desktop\KhosuRoom\KhosuRoom.Presentation\obj\Debug\net8.0\ref\KhosuRoom.Presentation.dll
+C:\Users\Balqeyis\Desktop\KhosuRoom\KhosuRoom.Presentation\bin\Debug\net8.0\BouncyCastle.Cryptography.dll
+C:\Users\Balqeyis\Desktop\KhosuRoom\KhosuRoom.Presentation\bin\Debug\net8.0\MailKit.dll
+C:\Users\Balqeyis\Desktop\KhosuRoom\KhosuRoom.Presentation\bin\Debug\net8.0\MimeKit.dll

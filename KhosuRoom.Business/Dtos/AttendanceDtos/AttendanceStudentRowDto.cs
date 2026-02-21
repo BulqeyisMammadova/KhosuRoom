@@ -7,5 +7,5 @@ public class AttendanceStudentRowDto
     public Guid StudentId { get; set; }
     public string FullName { get; set; } = null!;
     public int TotalAbsentCount { get; set; }
-    public AttendanceStatus Status { get; set; }
+    public string Status { get; set; } = null!;
 }

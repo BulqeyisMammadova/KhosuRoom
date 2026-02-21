@@ -30,11 +30,11 @@ internal class NotificationService : INotificationService
         _userManager = userManager;
     }
 
-    
+
     private Guid CurrentUserId()
     {
         var user = _http.HttpContext?.User;
-        if(user == null) throw new LoginException("Unauthorized");
+        if (user == null) throw new LoginException("Unauthorized");
         var userId = user.FindFirstValue(ClaimTypes.NameIdentifier) ?? throw new LoginException("Unauthorized");
         return Guid.Parse(userId);
     }
@@ -59,7 +59,7 @@ internal class NotificationService : INotificationService
     {
         var userId = CurrentUserId();
         var notificationsCount = await _notificationRepository.GetAll()
-            .Where(x=>x.UserId == userId && !x.IsRead)
+            .Where(x => x.UserId == userId && !x.IsRead)
             .CountAsync();
         return new(new UnreadCountDto { Count = notificationsCount });
     }
@@ -69,13 +69,13 @@ internal class NotificationService : INotificationService
     {
         var userId = CurrentUserId();
         var notification = await _notificationRepository.GetAll()
-            .FirstOrDefaultAsync(x=>x.Id == notificationId &&  x.UserId == userId);
-        if(notification == null) throw new NotFoundExceptions("Notification not found");
+            .FirstOrDefaultAsync(x => x.Id == notificationId && x.UserId == userId);
+        if (notification == null) throw new NotFoundExceptions("Notification not found");
         if (!notification.IsRead)
         {
             notification.IsRead = true;
             notification.ReadAt = DateTime.UtcNow;
-           await _notificationRepository.SaveChangesAsync();
+            await _notificationRepository.SaveChangesAsync();
         }
         return new();
     }
@@ -85,10 +85,11 @@ internal class NotificationService : INotificationService
     string title,
     string message,
     NotificationType type,
-    Guid? groupId,
-    string? redirectUrl = null)
+    Guid groupId,
+    string? redirectUrl = null,
+    Guid? senderUserId = null)
     {
-        var ids = userIds?.Distinct().ToList() ?? [];
+        var ids = userIds?.Distinct().ToList() ?? new List<Guid>();
         if (ids.Count == 0) return;
 
         var now = DateTime.UtcNow;
@@ -98,7 +99,7 @@ internal class NotificationService : INotificationService
             var notification = new Notification
             {
                 UserId = uid,
-                GroupId = (Guid)groupId,   
+                GroupId = groupId,
                 Title = title,
                 Message = message,
                 Type = type,
@@ -114,29 +115,61 @@ internal class NotificationService : INotificationService
 
         await _notificationRepository.SaveChangesAsync();
 
+       
+        string? replyToEmail = null;
+        string? replyToName = null;
+
+        if (senderUserId.HasValue)
+        {
+            var sender = await _userManager.Users
+                .Where(u => u.Id == senderUserId.Value)
+                .Select(u => new { u.UserName, u.Email })
+                .FirstOrDefaultAsync();
+
+            replyToEmail = sender?.Email;
+            replyToName = sender?.UserName;
+        }
+
         
-        var emails = await _userManager.Users
+        var toEmails = await _userManager.Users
             .Where(u => ids.Contains(u.Id) && u.Email != null)
             .Select(u => u.Email!)
             .ToListAsync();
 
-       
-        foreach (var email in emails)
+        if (toEmails.Count == 0) return;
+
+        
+        foreach (var toEmail in toEmails)
         {
             try
             {
                 var subject = $"KhosuRoom: {title}";
-                var body = $@"
-                <h3>{title}</h3>
-                <p>{message}</p>
-                {(redirectUrl is not null ? $"<p><a href='{redirectUrl}'>Open</a></p>" : "")}
-            ";
 
-                await _emailService.SendEmailAsync(email, subject, body);
+                var senderLine =
+                    (!string.IsNullOrWhiteSpace(replyToName) || !string.IsNullOrWhiteSpace(replyToEmail))
+                    ? $"<p><b>Sent by:</b> {replyToName ?? "Teacher"} {(string.IsNullOrWhiteSpace(replyToEmail) ? "" : $"({replyToEmail})")}</p>"
+                    : "";
+
+               
+
+                var body = $@"
+<div style='font-family: Arial, sans-serif;'>
+    <h3>{title}</h3>
+    <p>{message}</p>
+    {senderLine}
+</div>";
+
+                await _emailService.SendEmailAsync(
+                    toEmail,
+                    subject,
+                    body,
+                    replyToEmail,
+                    replyToName
+                );
             }
             catch
             {
-                
+               
             }
         }
     }

@@ -87,7 +87,12 @@ internal class DashboardService : IDashboardService
             })
             .ToListAsync();
 
-        var subMap = submissions.ToDictionary(x => x.StudentId, x => x);
+        var subMap = submissions
+    .GroupBy(x => x.StudentId)
+    .ToDictionary(
+        g => g.Key,
+        g => g.OrderByDescending(x => x.SubmittedAt ?? DateTime.MinValue).First()
+    );
 
         var dto = new AssignmentDashboardDto
         {
@@ -105,10 +110,8 @@ internal class DashboardService : IDashboardService
                 var isSubmitted = sub.SubmittedAt is not null &&
                                   (sub.Status == SubmissionStatus.Submitted || sub.Status == SubmissionStatus.Late);
 
-               
-                var progress = sub.Grade.HasValue
-                    ? ClampTo0_100(sub.Grade.Value)
-                    : (isSubmitted ? 100m : 0m);
+
+                var progress = isSubmitted ? 100m : 0m;
 
                 dto.Students.Add(new StudentSubmissionDto
                 {
@@ -189,7 +192,12 @@ internal class DashboardService : IDashboardService
         .Select(s => new { s.AssignmentId, s.Status, s.Grade, s.SubmittedAt })
         .ToListAsync();
 
-        var subMap = subs.ToDictionary(x => x.AssignmentId, x => x);
+        var subMap = subs
+    .GroupBy(x => x.AssignmentId)
+    .ToDictionary(
+        g => g.Key,
+        g => g.OrderByDescending(x => x.SubmittedAt ?? DateTime.MinValue).First()
+    );
 
         int submittedCount = 0;
         int lateCount = 0;

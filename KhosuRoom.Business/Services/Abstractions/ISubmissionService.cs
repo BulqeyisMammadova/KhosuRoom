@@ -7,7 +7,6 @@ public interface ISubmissionService
 {
     Task<ResultDto> SubmitAsync(SubmissionSubmitFormDto dto);
     Task<ResultDto<SubmissionGetDto>> GetMySubmissionAsync(Guid assignmentId);
-    Task<ResultDto<IEnumerable<SubmissionGetDto>>> GetSubmissionsByAssignmentAsync(Guid assignmentId);
     Task<ResultDto> GradeAsync(Guid submissionId, GradeSubmissionDto dto);
 
 }

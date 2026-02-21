@@ -82,7 +82,9 @@ internal class AttendanceService : IAttendanceService
        $"Attendance session for {dto.Date:yyyy-MM-dd} has been created.",
        NotificationType.AttendanceSessionCreated,
        dto.GroupId,
-       $"/groups/{dto.GroupId}/attendance"
+       $"/groups/{dto.GroupId}/attendance",
+         senderUserId: session.TeacherId
+
    );
 
         return new();
@@ -125,7 +127,7 @@ internal class AttendanceService : IAttendanceService
                 var row = _mapper.Map<AttendanceStudentRowDto>(r);
                 absentCounts.TryGetValue(r.StudentId, out var cnt);
                 row.TotalAbsentCount = cnt;
-                row.Status = r.Status;
+                row.Status = r.Status.ToString();
                 row.StudentId = r.StudentId;
                 return row;
             })
@@ -159,6 +161,17 @@ internal class AttendanceService : IAttendanceService
         }
 
         await _recordRepo.SaveChangesAsync();
+        var studentIds = records.Select(r => r.StudentId).Distinct().ToList();
+
+        await _notificationService.CreateForUsersAsync(
+            studentIds,
+            "Attendance Updated",
+            $"Attendance for {session.Date:yyyy-MM-dd} has been updated.",
+            NotificationType.AttendanceSaved,
+            session.GroupId,
+            $"/groups/{session.GroupId}/attendance",
+            senderUserId: session.TeacherId
+        );
 
         return new ResultDto();
     }

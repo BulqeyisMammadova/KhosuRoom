@@ -9,13 +9,16 @@ public interface INotificationService
     Task<ResultDto<IEnumerable<GetNotificationDto>>> GetMyNotificationsAsync(int take = 50);
     Task<ResultDto<UnreadCountDto>> GetUnreadCountAsync();
     Task<ResultDto> MarkAsReadAsync(Guid notificationId);
+
+
     Task CreateForUsersAsync(
-        IEnumerable<Guid> userIds,
-        string title,
-        string message,
-        NotificationType type,
-        Guid? groupId = null,
-        string? redirectUrl = null);
+     IEnumerable<Guid> userIds,
+     string title,
+     string message,
+     NotificationType type,
+     Guid groupId,
+     string? redirectUrl = null,
+     Guid? senderUserId = null);
 
 }
 

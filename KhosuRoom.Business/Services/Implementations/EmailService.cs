@@ -9,37 +9,51 @@ namespace KhosuRoom.Business.Services.Implementations;
 internal class EmailService : IEmailService
 {
     private readonly SmtpSettingsDto _smtpSettings;
-    private readonly IConfiguration _configuration;
 
     public EmailService(IConfiguration configuration)
     {
-        _configuration = configuration;
-        _smtpSettings = _configuration.GetSection("SmtpSettings").Get<SmtpSettingsDto>() ?? new SmtpSettingsDto();
+        _smtpSettings = configuration.GetSection("SmtpSettings").Get<SmtpSettingsDto>()
+            ?? new SmtpSettingsDto();
     }
 
-    public async Task SendEmailAsync(string email, string subject, string body)
+    public async Task SendEmailAsync(
+        string toEmail,
+        string subject,
+        string body,
+        string? replyToEmail = null,
+        string? replyToName = null)
     {
         try
         {
             var message = new MimeMessage();
+
+           
             message.From.Add(new MailboxAddress(_smtpSettings.SenderName, _smtpSettings.SenderEmail));
-            message.To.Add(new MailboxAddress(email,email));
+
+            
+            if (!string.IsNullOrWhiteSpace(replyToEmail))
+            {
+                message.ReplyTo.Add(new MailboxAddress(replyToName ?? replyToEmail, replyToEmail));
+            }
+
+            message.To.Add(MailboxAddress.Parse(toEmail));
             message.Subject = subject;
+
             message.Body = new TextPart("html")
             {
                 Text = body
             };
-            using var client = new SmtpClient();
 
+            using var client = new SmtpClient();
             client.ServerCertificateValidationCallback = (s, c, h, e) => true;
+
             await client.ConnectAsync(_smtpSettings.Server, _smtpSettings.Port, false);
             await client.AuthenticateAsync(_smtpSettings.Username, _smtpSettings.Password);
             await client.SendAsync(message);
             await client.DisconnectAsync(true);
         }
-        catch(Exception ex)
+        catch (Exception ex)
         {
-            
             throw new Exception("Failed to send email", ex);
         }
     }

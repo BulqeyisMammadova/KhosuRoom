@@ -7,6 +7,7 @@ using KhosuRoom.Core.Entities;
 using KhosuRoom.Core.Enums;
 using KhosuRoom.DataAccess.Repository.Abstarctions;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
 
@@ -22,8 +23,9 @@ internal class SubmissionService : ISubmissionService
     private readonly IMapper _mapper;
     private readonly IHttpContextAccessor _http;
     private readonly INotificationService _notificationService;
+    private readonly UserManager<AppUser> _userManager;
 
-    public SubmissionService(ISubmissionRepository submissionRepo, ISubmissionAttachmentRepository attRepo, IAssigmentRepository assignmentRepo, IGroupMemberRepository groupMemberRepo, ICloudinaryService cloudinary, IMapper mapper, IHttpContextAccessor http, INotificationService notificationService)
+    public SubmissionService(ISubmissionRepository submissionRepo, ISubmissionAttachmentRepository attRepo, IAssigmentRepository assignmentRepo, IGroupMemberRepository groupMemberRepo, ICloudinaryService cloudinary, IMapper mapper, IHttpContextAccessor http, INotificationService notificationService, UserManager<AppUser> userManager)
     {
         _submissionRepo = submissionRepo;
         _attRepo = attRepo;
@@ -33,6 +35,7 @@ internal class SubmissionService : ISubmissionService
         _mapper = mapper;
         _http = http;
         _notificationService = notificationService;
+        _userManager = userManager;
     }
 
     private Guid CurrentUserId()
@@ -58,14 +61,16 @@ internal class SubmissionService : ISubmissionService
     {
         var isTeacher = await _groupMemberRepo.AnyAsync(x =>
             x.GroupId == groupId && x.UserId == userId && x.Role == GroupRole.Teacher);
-        if (!isTeacher) throw new LoginException("Unauthorized");
+        if (!isTeacher) throw new ForbiddenException("Only teachers can access this resource.");
     }
 
     public async Task<ResultDto> SubmitAsync(SubmissionSubmitFormDto dto)
     {
         var studentId = CurrentUserId();
 
-        var assignment = await _assignmentRepo.GetByIdAsync(dto.AssignmentId);
+        var assignment = await _assignmentRepo.GetAll()
+     .AsNoTracking()
+     .FirstOrDefaultAsync(a => a.Id == dto.AssignmentId);
         if (assignment is null) throw new NotFoundExceptions("Assignment not found");
 
         await EnsureStudentAsync(assignment.GroupId, studentId);
@@ -90,9 +95,35 @@ internal class SubmissionService : ISubmissionService
         submission.Status = submission.SubmittedAt.Value > assignment.DueDate
             ? SubmissionStatus.Late
             : SubmissionStatus.Submitted;
+        var isLate = submission.Status == SubmissionStatus.Late;
+        var student = await _userManager.Users
+    .Where(u => u.Id == studentId)
+    .Select(u => new { u.UserName, u.Email })
+    .FirstOrDefaultAsync();
+
+        var studentName = student?.UserName ?? "Student";
 
         _submissionRepo.Update(submission);
         await _submissionRepo.SaveChangesAsync();
+        var title = isLate ? "Late Submission" : "New Submission";
+
+        var msg = isLate
+            ? $"{studentName} submitted '{assignment.Title}' LATE. Due: {assignment.DueDate:yyyy-MM-dd HH:mm}"
+            : $"{studentName} submitted '{assignment.Title}'.";
+
+        var type = isLate
+            ? NotificationType.SubmissionSubmittedLate
+            : NotificationType.SubmissionSubmitted;
+
+        await _notificationService.CreateForUsersAsync(
+            new[] { assignment.TeacherId },                 
+            title,
+            msg,
+            type,
+            assignment.GroupId,
+            $"/groups/{assignment.GroupId}/assignments/{assignment.Id}",
+            senderUserId: studentId                         
+        );
 
         if (dto.Files is not null && dto.Files.Count > 0)
         {
@@ -120,6 +151,16 @@ internal class SubmissionService : ISubmissionService
                 });
             }
             await _attRepo.SaveChangesAsync();
+           
+            await _notificationService.CreateForUsersAsync(
+                new[] { assignment.TeacherId },                 
+                "New Submission",
+                $"A student submitted '{assignment.Title}'.",   
+                NotificationType.SubmissionSubmitted,
+                assignment.GroupId,
+                $"/groups/{assignment.GroupId}/assignments/{assignment.Id}",
+                senderUserId: studentId                         
+            );
         }
 
         return new ResultDto();
@@ -139,24 +180,7 @@ internal class SubmissionService : ISubmissionService
         return new ResultDto<SubmissionGetDto>(_mapper.Map<SubmissionGetDto>(submission));
     }
 
-    public async Task<ResultDto<IEnumerable<SubmissionGetDto>>> GetSubmissionsByAssignmentAsync(Guid assignmentId)
-    {
-        var teacherId = CurrentUserId();
-
-        var assignment = await _assignmentRepo.GetByIdAsync(assignmentId);
-        if (assignment is null) throw new NotFoundExceptions("Assignment not found");
-
-        await EnsureTeacherAsync(assignment.GroupId, teacherId);
-
-        var list = await _submissionRepo.GetAll()
-            .Where(s => s.AssignmentId == assignmentId)
-            .Include(s => s.Attachments)
-            .AsNoTracking()
-            .ToListAsync();
-
-        return new ResultDto<IEnumerable<SubmissionGetDto>>(_mapper.Map<IEnumerable<SubmissionGetDto>>(list));
-    }
-
+   
     public async Task<ResultDto> GradeAsync(Guid submissionId, GradeSubmissionDto dto)
     {
         var teacherId = CurrentUserId();
@@ -177,14 +201,17 @@ internal class SubmissionService : ISubmissionService
 
         _submissionRepo.Update(submission);
         await _submissionRepo.SaveChangesAsync();
+
         await _notificationService.CreateForUsersAsync(
        new[] { submission.StudentId },
        "Grade Published",
        $"{submission.Assignment.Title}: {dto.Grade} points.",
        NotificationType.GradePublished,
        submission.Assignment.GroupId,
-       $"/groups/{submission.Assignment.GroupId}/assignments/{submission.AssignmentId}"
+       $"/groups/{submission.Assignment.GroupId}/assignments/{submission.AssignmentId}",
+        senderUserId: teacherId
    );
+
 
         return new ResultDto();
     }

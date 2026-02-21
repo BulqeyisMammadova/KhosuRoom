@@ -629,22 +629,6 @@
   },
   {
     "ContainingType": "KhosuRoom.Presentation.Controllers.SubmissionsController",
-    "Method": "ByAssignment",
-    "RelativePath": "api/Submissions/assignment/{assignmentId}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "assignmentId",
-        "Type": "System.Guid",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "KhosuRoom.Presentation.Controllers.SubmissionsController",
     "Method": "My",
     "RelativePath": "api/Submissions/my/{assignmentId}",
     "HttpMethod": "GET",

@@ -88,14 +88,16 @@ internal class AssignmentService : IAssignmentService
             .Select(x => x.UserId)
             .ToListAsync();
 
+       
         await _notificationService.CreateForUsersAsync(
-            studentIds,
-            "New Assignment",
-            $"{assignment.Title} created.",
-            NotificationType.AssignmentCreated,
-            assignment.GroupId,
-            $"/groups/{assignment.GroupId}/assignments/{assignment.Id}"
-        );
+    studentIds,
+    "New Assignment",
+    $"{assignment.Title} created new assignment",
+    NotificationType.AssignmentCreated,
+    assignment.GroupId,
+    $"/groups/{assignment.GroupId}/assignments/{assignment.Id}",
+    senderUserId: assignment.TeacherId
+);
 
         if (dto.Files is not null && dto.Files.Count > 0)
         {
@@ -148,13 +150,15 @@ internal class AssignmentService : IAssignmentService
     .ToListAsync();
 
         await _notificationService.CreateForUsersAsync(
-            studentIds,
-            "Assignment Updated",
-            $"{assignment.Title} updated.",
-            NotificationType.AssignmentUpdated,
-            assignment.GroupId,
-            $"/groups/{assignment.GroupId}/assignments/{assignment.Id}"
-        );
+      studentIds,
+      "Assignment Updated",
+      $"{assignment.Title} updated.",
+      NotificationType.AssignmentUpdated,
+      assignment.GroupId,
+      $"/groups/{assignment.GroupId}/assignments/{assignment.Id}",
+      senderUserId: assignment.TeacherId
+  );
+
 
 
 

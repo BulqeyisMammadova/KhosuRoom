@@ -27,13 +27,7 @@ public class SubmissionsController : ControllerBase
         var result = await _service.GetMySubmissionAsync(assignmentId);
         return Ok(result);
     }
-    [Authorize(Roles = "Student")]
-    [HttpGet("assignment/{assignmentId:guid}")]
-    public async Task<IActionResult> ByAssignment(Guid assignmentId)
-    {
-        var result = await _service.GetSubmissionsByAssignmentAsync(assignmentId);
-        return Ok(result);
-    }
+    
     [Authorize(Roles = "Teacher")]
 
     [HttpPost("{submissionId:guid}/grade")]

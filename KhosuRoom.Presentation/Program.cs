@@ -1,3 +1,4 @@
+using KhosuRoom.Business.Hubs;
 using KhosuRoom.Business.ServiceRegistrations;
 using KhosuRoom.DataAccess.Abstractions;
 using KhosuRoom.DataAccess.ServiceRegistartions;
@@ -45,6 +46,7 @@ builder.Services.AddSwaggerGen(opt =>
 });
 
 
+builder.Services.AddSignalR();
 
 builder.Services.AddDataAccessServices(builder.Configuration);
 builder.Services.AddBusinessServices(builder.Configuration);
@@ -67,6 +69,7 @@ if (app.Environment.IsDevelopment())
 app.UseAuthentication();
 app.UseAuthorization();
 
+app.MapHub<GroupChatHub>("/hubs/groupchat");
 app.MapControllers();
 
 await app.RunAsync();

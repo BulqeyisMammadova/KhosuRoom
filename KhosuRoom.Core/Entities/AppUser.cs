@@ -18,5 +18,6 @@ public class AppUser : IdentityUser<Guid>
     public ICollection<Submission> Submissions { get; set; } = [];
     public ICollection<Submission> GradedSubmissions { get; set; } = [];
     public ICollection<Notification> Notifications { get; set; } = [];
-   
+    public ICollection<ChatMessage> SentMessages { get; set; } = [];
+
 }

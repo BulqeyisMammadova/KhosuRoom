@@ -1,6 +1,6 @@
 ﻿namespace KhosuRoom.Core.Entities.Common;
 
-public abstract class BaseAutitableEntity: BaseEntity
+public abstract class BaseAuditableEntity: BaseEntity
 {
     public DateTime CreateDate { get; set; } = DateTime.UtcNow;
     public string CreateBy { get; set; } = string.Empty;

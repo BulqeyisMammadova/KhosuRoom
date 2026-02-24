@@ -343,6 +343,80 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "KhosuRoom.Presentation.Controllers.ChatController",
+    "Method": "DeleteMessage",
+    "RelativePath": "api/Chat/{messageId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "messageId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "KhosuRoom.Presentation.Controllers.ChatController",
+    "Method": "EditMessage",
+    "RelativePath": "api/Chat/edit",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "KhosuRoom.Business.Dtos.ChatDtos.EditMessageDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "KhosuRoom.Presentation.Controllers.ChatController",
+    "Method": "GetChatMessages",
+    "RelativePath": "api/Chat/groups/{groupId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "groupId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "page",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "pageSize",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "KhosuRoom.Presentation.Controllers.ChatController",
+    "Method": "SendMessage",
+    "RelativePath": "api/Chat/send",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "KhosuRoom.Business.Dtos.ChatDtos.SendMessageDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "KhosuRoom.Presentation.Controllers.DashboardsController",
     "Method": "Assignment",
     "RelativePath": "api/Dashboards/assignment/{assignmentId}",

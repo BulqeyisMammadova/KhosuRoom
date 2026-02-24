@@ -22,7 +22,7 @@ internal class BaseAuditableInterceptor:SaveChangesInterceptor
     {
         if (eventData.Context is AppDBContext context)
         {
-            var entities = context.ChangeTracker.Entries<BaseAutitableEntity>().ToList();
+            var entities = context.ChangeTracker.Entries<BaseAuditableEntity>().ToList();
             foreach (var entry in entities)
             {
                 switch (entry.State)

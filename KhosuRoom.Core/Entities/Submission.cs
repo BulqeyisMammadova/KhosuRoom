@@ -3,7 +3,7 @@ using KhosuRoom.Core.Enums;
 
 namespace KhosuRoom.Core.Entities;
 
-public class Submission : BaseAutitableEntity
+public class Submission : BaseAuditableEntity
 {
     public Guid AssignmentId { get; set; }
     public Assignment? Assignment { get; set; }

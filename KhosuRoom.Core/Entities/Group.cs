@@ -2,7 +2,7 @@
 
 namespace KhosuRoom.Core.Entities;
 
-public class Group : BaseAutitableEntity
+public class Group : BaseAuditableEntity
 {
     public string Name { get; set; } = null!;
     public string Code { get; set; } = null!;
@@ -10,5 +10,6 @@ public class Group : BaseAutitableEntity
     public ICollection<Assignment> Assignments { get; set; } = [];
     public ICollection<AttendanceSession> AttendanceSessions { get; set; } = [];
     public ICollection<Notification> Notifications { get; set; } = [];
+    public ICollection<ChatMessage> ChatMessages { get; set; } = [];
 
 }

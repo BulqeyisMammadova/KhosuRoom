@@ -7,5 +7,3 @@ namespace KhosuRoom.DataAccess.Repository.Implementations;
 internal class AssignmentAttachmentRepository(AppDBContext _context) : Repository<AssignmentAttachment>(_context), IAssignmentAttachmentRepository
 {
 }
-
-

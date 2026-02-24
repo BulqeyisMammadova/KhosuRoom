@@ -50,6 +50,7 @@ public static class DataAccessRegistration
         services.AddScoped<IAttendanceRecordRepository, AttendanceRecordRepository>();
         services.AddScoped<IAttendanceSessionRepository, AttendanceSessionRepository>();
         services.AddScoped<INotificationRepository, NotificationRepository>();
+        services.AddScoped<IChatMessageRepository, ChatMessageRepository>();
 
     }
 }

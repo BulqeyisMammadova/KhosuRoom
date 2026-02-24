@@ -2,7 +2,7 @@
 
 namespace KhosuRoom.Core.Entities;
 
-public class AttendanceSession : BaseAutitableEntity
+public class AttendanceSession : BaseAuditableEntity
 {
     public Guid GroupId { get; set; }
     public Group Group { get; set; } = null!;

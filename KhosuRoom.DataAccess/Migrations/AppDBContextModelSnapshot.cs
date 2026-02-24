@@ -270,6 +270,68 @@ namespace KhosuRoom.DataAccess.Migrations
                     b.ToTable("AttendanceSessions");
                 });
 
+            modelBuilder.Entity("KhosuRoom.Core.Entities.ChatMessage", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("CreateBy")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("DeleteBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("DeleteDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("EditedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("GroupId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsEdited")
+                        .HasColumnType("bit");
+
+                    b.Property<Guid?>("ReplyToMessageId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("SenderId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("SentAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Text")
+                        .IsRequired()
+                        .HasMaxLength(2000)
+                        .HasColumnType("nvarchar(2000)");
+
+                    b.Property<string>("UpdateBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("UpdateDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ReplyToMessageId");
+
+                    b.HasIndex("SenderId");
+
+                    b.HasIndex("GroupId", "SentAt");
+
+                    b.ToTable("ChatMessages");
+                });
+
             modelBuilder.Entity("KhosuRoom.Core.Entities.Group", b =>
                 {
                     b.Property<Guid>("Id")
@@ -706,6 +768,32 @@ namespace KhosuRoom.DataAccess.Migrations
                     b.Navigation("Teacher");
                 });
 
+            modelBuilder.Entity("KhosuRoom.Core.Entities.ChatMessage", b =>
+                {
+                    b.HasOne("KhosuRoom.Core.Entities.Group", "Group")
+                        .WithMany("ChatMessages")
+                        .HasForeignKey("GroupId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("KhosuRoom.Core.Entities.ChatMessage", "ReplyToMessage")
+                        .WithMany("Replies")
+                        .HasForeignKey("ReplyToMessageId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("KhosuRoom.Core.Entities.AppUser", "Sender")
+                        .WithMany("SentMessages")
+                        .HasForeignKey("SenderId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Group");
+
+                    b.Navigation("ReplyToMessage");
+
+                    b.Navigation("Sender");
+                });
+
             modelBuilder.Entity("KhosuRoom.Core.Entities.GroupMember", b =>
                 {
                     b.HasOne("KhosuRoom.Core.Entities.Group", "Group")
@@ -842,6 +930,8 @@ namespace KhosuRoom.DataAccess.Migrations
 
                     b.Navigation("Notifications");
 
+                    b.Navigation("SentMessages");
+
                     b.Navigation("Submissions");
                 });
 
@@ -857,11 +947,18 @@ namespace KhosuRoom.DataAccess.Migrations
                     b.Navigation("Records");
                 });
 
+            modelBuilder.Entity("KhosuRoom.Core.Entities.ChatMessage", b =>
+                {
+                    b.Navigation("Replies");
+                });
+
             modelBuilder.Entity("KhosuRoom.Core.Entities.Group", b =>
                 {
                     b.Navigation("Assignments");
 
                     b.Navigation("AttendanceSessions");
+
+                    b.Navigation("ChatMessages");
 
                     b.Navigation("Members");
 

@@ -26,6 +26,7 @@ internal class AppDBContext : IdentityDbContext<AppUser, IdentityRole<Guid>, Gui
         modelBuilder.Entity<Assignment>().HasQueryFilter(a => !a.IsDeleted);
         modelBuilder.Entity<Submission>().HasQueryFilter(s => !s.IsDeleted);
         modelBuilder.Entity<Notification>().HasQueryFilter(n => !n.IsDeleted);
+        modelBuilder.Entity<ChatMessage>().HasQueryFilter(n => !n.IsDeleted);
 
     }
 
@@ -46,6 +47,6 @@ internal class AppDBContext : IdentityDbContext<AppUser, IdentityRole<Guid>, Gui
     public DbSet<AttendanceSession> AttendanceSessions { get; set; } = null!;
     public DbSet<AttendanceRecord> AttendanceRecords { get; set; } = null!;
     public DbSet<Notification> Notifications { get; set; } = null!;
-
+    public DbSet<ChatMessage> ChatMessages { get; set; } = null!;   
 
 }

@@ -11,5 +11,5 @@ public enum NotificationType
     AttendanceSessionCreated = 10,
     AttendanceSaved = 11,
 
-    ChatMessageReceived = 20
+    
 }

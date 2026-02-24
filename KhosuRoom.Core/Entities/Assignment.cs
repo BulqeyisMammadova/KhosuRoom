@@ -2,7 +2,7 @@
 
 namespace KhosuRoom.Core.Entities;
 
-public class Assignment : BaseAutitableEntity
+public class Assignment : BaseAuditableEntity
 {
     public Guid GroupId { get; set; }
     public Group? Group { get; set; }

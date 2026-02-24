@@ -3,7 +3,7 @@ using KhosuRoom.Core.Enums;
 
 namespace KhosuRoom.Core.Entities;
 
-public class Notification : BaseAutitableEntity
+public class Notification : BaseAuditableEntity
 {
     public Guid UserId { get; set; }
     public AppUser User { get; set; } = null!;

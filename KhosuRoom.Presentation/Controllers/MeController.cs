@@ -46,12 +46,7 @@ public class MeController : ControllerBase
         return Ok(result);
     }
 
-    //[HttpGet("email")]
-    //public async Task<IActionResult> GetEmail()
-    //{
-    //     await _emailService.SendEmailAsync("bulqeyis.mammadova@gmail.com","Test Email from KhosuRoom", "This is a test email sent from the KhosuRoom application.");
-    //    return Ok("OK");
-    //}
+    
 
 
 

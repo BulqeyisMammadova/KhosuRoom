@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace KhosuRoom.Api.Controllers;
 
-[Route("api/[controller]")]
+[Route("api/Attendance")]
 [ApiController]
 [Authorize]
 public class AttendanceController : ControllerBase
@@ -41,4 +41,9 @@ public class AttendanceController : ControllerBase
     [Authorize(Roles = "Student")]
     public async Task<IActionResult> My([FromRoute] Guid groupId)
         => Ok(await _service.GetMyAttendanceAsync(groupId));
+
+    [HttpGet("my/{groupId:guid}/history")]
+    [Authorize(Roles = "Student")]
+    public async Task<IActionResult> MyHistory([FromRoute] Guid groupId)
+       => Ok(await _service.GetMyAttendanceHistoryAsync(groupId));
 }

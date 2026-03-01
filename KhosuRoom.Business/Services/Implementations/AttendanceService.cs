@@ -95,8 +95,12 @@ internal class AttendanceService : IAttendanceService
         var session = await _sessionRepo.GetByIdAsync(sessionId);
         if (session is null)   throw new NotFoundExceptions("Session not found");
 
-        if (session.TeacherId != CurrentUserId) throw new ForbiddenException("You can only access your own sessions");
+        var isTeacherInGroup = await _groupMemberRepo.AnyAsync(gm =>
+                   gm.GroupId == session.GroupId &&
+                   gm.UserId == CurrentUserId &&
+                   gm.Role == GroupRole.Teacher);
 
+        if (!isTeacherInGroup) throw new ForbiddenException("Only teacher can access session table");
         var records = await _recordRepo
             .GetAll()
             .Where(r => r.AttendanceSessionId == sessionId)
@@ -143,8 +147,12 @@ internal class AttendanceService : IAttendanceService
         var session = await _sessionRepo.GetByIdAsync(sessionId);
         if (session is null) throw new NotFoundExceptions("Session not found");
 
-        if (session.TeacherId != CurrentUserId)    throw new ForbiddenException("You can only update your own sessions");
+        var isTeacherInGroup = await _groupMemberRepo.AnyAsync(gm =>
+                   gm.GroupId == session.GroupId &&
+                   gm.UserId == CurrentUserId &&
+                   gm.Role == GroupRole.Teacher);
 
+        if (!isTeacherInGroup) throw new ForbiddenException("Only teacher can update attendance");
         var records = await _recordRepo
             .GetAll()
             .Where(r => r.AttendanceSessionId == sessionId)
@@ -220,6 +228,28 @@ internal class AttendanceService : IAttendanceService
 
         var students = _mapper.Map<List<AttendanceSessionListItemDto>>(sessions);
         return students;
+    }
+
+    public async Task<List<MyAttendanceHistoryItemDto>> GetMyAttendanceHistoryAsync(Guid groupId)
+    {
+        var isMember = await _groupMemberRepo.AnyAsync(gm => gm.GroupId == groupId && gm.UserId == CurrentUserId);
+        if (!isMember) throw new ForbiddenException("You are not a member of this group");
+
+        var records = await _recordRepo
+            .GetAll()
+            .Include(r => r.AttendanceSession)
+            .Where(r => r.StudentId == CurrentUserId && r.AttendanceSession.GroupId == groupId)
+            .OrderByDescending(r => r.AttendanceSession.Date)
+            .ToListAsync();
+
+        return records
+            .Select(r => new MyAttendanceHistoryItemDto
+            {
+                SessionId = r.AttendanceSessionId,
+                Date = r.AttendanceSession.Date,
+                Status = r.Status.ToString()
+            })
+            .ToList();
     }
 
 

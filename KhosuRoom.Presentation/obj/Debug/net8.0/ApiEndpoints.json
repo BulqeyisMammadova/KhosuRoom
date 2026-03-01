@@ -259,6 +259,22 @@
   },
   {
     "ContainingType": "KhosuRoom.Api.Controllers.AttendanceController",
+    "Method": "MyHistory",
+    "RelativePath": "api/Attendance/my/{groupId}/history",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "groupId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "KhosuRoom.Api.Controllers.AttendanceController",
     "Method": "CreateSession",
     "RelativePath": "api/Attendance/sessions",
     "HttpMethod": "POST",

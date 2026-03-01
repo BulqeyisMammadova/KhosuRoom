@@ -14,4 +14,5 @@ public interface IAttendanceService
     Task<ResultDto> SaveAttendanceAsync(Guid sessionId, SaveAttendanceDto dto);
 
     Task<MyAttendanceDto> GetMyAttendanceAsync(Guid groupId);
+    Task<List<MyAttendanceHistoryItemDto>> GetMyAttendanceHistoryAsync(Guid groupId);
 }

@@ -80,6 +80,7 @@ internal class DashboardService : IDashboardService
             .AsNoTracking()
             .Select(s => new
             {
+                s.Id,
                 s.StudentId,
                 s.Status,
                 s.SubmittedAt,
@@ -116,6 +117,7 @@ internal class DashboardService : IDashboardService
                 dto.Students.Add(new StudentSubmissionDto
                 {
                     StudentId = st.StudentId,
+                    SubmissionId = sub.Id,
                     FullName = st.FullName,
                     Email = st.Email,
                     IsSubmitted = isSubmitted,
@@ -131,6 +133,7 @@ internal class DashboardService : IDashboardService
                 {
                     StudentId = st.StudentId,
                     FullName = st.FullName,
+                    SubmissionId = null,
                     Email = st.Email,
                     IsSubmitted = false,
                     Status = null,

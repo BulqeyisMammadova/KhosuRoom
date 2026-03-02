@@ -144,32 +144,58 @@ internal class AttendanceService : IAttendanceService
 
     public async Task<ResultDto> SaveAttendanceAsync(Guid sessionId, SaveAttendanceDto dto)
     {
+        
         var session = await _sessionRepo.GetByIdAsync(sessionId);
-        if (session is null) throw new NotFoundExceptions("Session not found");
+        if (session is null)
+            throw new NotFoundExceptions("Session not found");
 
         var isTeacherInGroup = await _groupMemberRepo.AnyAsync(gm =>
-                   gm.GroupId == session.GroupId &&
-                   gm.UserId == CurrentUserId &&
-                   gm.Role == GroupRole.Teacher);
+            gm.GroupId == session.GroupId &&
+            gm.UserId == CurrentUserId &&
+            gm.Role == GroupRole.Teacher);
 
-        if (!isTeacherInGroup) throw new ForbiddenException("Only teacher can update attendance");
+        if (!isTeacherInGroup)
+            throw new ForbiddenException("Only teacher can update attendance");
+
         var records = await _recordRepo
             .GetAll()
             .Where(r => r.AttendanceSessionId == sessionId)
             .ToListAsync();
 
+        if (dto?.Students is null || dto.Students.Count == 0)
+            throw new NotFoundExceptions("Students list is empty");
+
         foreach (var item in dto.Students)
         {
-            var rec = records.FirstOrDefault(r => r.StudentId == item.StudentId);
-            if (rec is null)  throw new NotFoundExceptions("Student record not found in this session");
+            var studentId = item.StudentId;
 
-            rec.Status = item.Status;
-            _recordRepo.Update(rec);
+            var rec = records.FirstOrDefault(r => r.StudentId == studentId);
 
+            if (rec is null)
+            {
+                rec = new AttendanceRecord
+                {
+                    AttendanceSessionId = sessionId,
+                    StudentId = studentId,
+                    Status = item.Status
+                };
+
+                await _recordRepo.AddAsync(rec);
+                records.Add(rec); 
+            }
+            else
+            {
+                rec.Status = item.Status;
+                _recordRepo.Update(rec);
+            }
         }
 
         await _recordRepo.SaveChangesAsync();
-        var studentIds = records.Select(r => r.StudentId).Distinct().ToList();
+
+        var studentIds = dto.Students
+            .Select(x => x.StudentId)
+            .Distinct()
+            .ToList();
 
         await _notificationService.CreateForUsersAsync(
             studentIds,

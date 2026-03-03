@@ -21,7 +21,7 @@ internal class ChatService : IChatService
     private readonly IGroupMemberRepository _memberRepo;
     private readonly IMapper _mapper;
     private readonly IHubContext<GroupChatHub> _hub;
-
+    
     public ChatService(IHttpContextAccessor http, IChatMessageRepository chatMessageRepository, IGroupMemberRepository memberRepo, IMapper mapper, IHubContext<GroupChatHub> hub)
     {
         _http = http;

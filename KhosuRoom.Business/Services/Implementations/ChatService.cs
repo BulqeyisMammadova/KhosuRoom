@@ -33,9 +33,11 @@ internal class ChatService : IChatService
 
     private Guid CurrentUser()
     {
-        var userId = _http.HttpContext!.User.FindFirstValue(ClaimTypes.NameIdentifier)!;
-        if (userId == null) throw new LoginException("User not authenticated");
-        return Guid.Parse(userId);
+        var userId = _http.HttpContext?.User?.FindFirstValue(ClaimTypes.NameIdentifier);
+        if (string.IsNullOrWhiteSpace(userId) || !Guid.TryParse(userId, out var parsed))
+            throw new LoginException("User not authenticated");
+
+        return parsed;
     }
    
 

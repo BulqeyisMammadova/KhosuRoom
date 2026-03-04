@@ -1,0 +1,12 @@
+# Task Breakdown
+- [/] Investigate Backend Endpoints
+  - [ ] Analyze Backend Controllers (`KhosuRoom.Presentation/Controllers`)
+  - [ ] Extract all available API endpoints
+- [ ] Investigate Frontend API Integrations
+  - [ ] Read Frontend source files (`KhosuRoom_Front/src`)
+  - [ ] Identify how the Frontend connects to the Backend (e.g., Axios, Fetch, services, stores)
+  - [ ] Map Frontend routes/calls to Backend endpoints
+- [ ] Compare Backend vs Frontend Endpoints
+  - [ ] Identify endpoints used by the Frontend
+  - [ ] Identify endpoints NOT used by the Frontend
+- [ ] Provide Summary to the User

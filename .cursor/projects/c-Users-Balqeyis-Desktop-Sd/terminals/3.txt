@@ -1,0 +1,20 @@
+---
+pid: 14352
+cwd: |
+  C:\Users\Balqeyis\Desktop\Sd\src
+active_command: npm run dev
+last_command: cd src
+last_exit_code: 0
+---
+PS C:\Users\Balqeyis\Desktop\Sd> cd src     
+PS C:\Users\Balqeyis\Desktop\Sd\src> npm run dev
+
+> khosuroom-frontend@1.0.0 dev
+> vite
+
+
+  VITE v6.4.1  ready in 309 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+  ➜  press h + enter to show help

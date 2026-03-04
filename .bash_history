@@ -1,69 +1,3 @@
-cat main.txt
-git merge test2
-giy push
-git push
-clear
-git checkout main
-git merge test2
-git checkout test2
-nano main.txt
-git add .
-git commit -m "Update" 
-git push
-git checkout main
-git merge test2
-git push
-git checkout -b
-git checkout -b "Registe-user"
-cat main.txt
-nano main.txt
-git add
-git add .
-git commit -m "Second change"
-git push
- git push --set-upstream origin Registe-user
-git checkout main
-git checkout -b task4
-nano main.txt
-git add .
-git commit -m "Task4 cchange"
-git push
- git push --set-upstream origin task4
-git checkout main
-git merge task4
-git push
-cat main.txt
-git merge Register-user
-git merge Register-user
-clear
-git merge Register-user
-nano main.txt
-git checkout main
-git merge Register-user
-git checkout -b user
-nano main.txt
-git add .
-git commit -m "1"
-git push
- git push --set-upstream origin user
-git checkout main
-git checkout -b newtask
-nano main.txt
-git add .
-git commit -m "new"
-git push
-  git push --set-upstream origin newtask
-git checkout main
-git merge user
-git push
-cat main.txt
-git merge newtask
-nano main.txt
-git status
-git commit "fix"
-git push
-git add .
-git status
 git commit "fixing"
 git commit -m "fiixing"
 git push
@@ -498,3 +432,69 @@ git commit -m "Create Project"
 git branch -M main
 git remote add origin https://github.com/BulqeyisMammadova/KhosuRoom.git
 git push -u origin main
+git init
+git add .
+git commit -m "Create Project"
+git branch -M main
+git remote add origin https://github.com/BulqeyisMammadova/KhosuRoom.git
+git push -u origin main
+clear
+git push -u origin main
+git add .
+git commit -m "Group Validator added"
+git push
+git add .
+git commit -m "Create roles"
+git push
+git add .
+git commit -m "Create JWT token"
+git push
+git add .
+git commit -m "Refresh Token"
+git push
+git add .
+git commit -m "CreateAppuserTable"
+git push
+git add .
+git commit -m "Create assign and submit"
+git push
+git add .
+git commit -m "assignandsubmmit"
+git push
+git add .
+git commit -m "DashBoardTeacher"
+git commit -m "DashBoardTeacher"
+git add .
+clear
+git add .
+git init
+git add .
+git commit -m "TeacherDashBoard"
+git push
+git add .
+git commit -m "Update TeacherAndStudents"
+git push 
+npx create-react-app KhosuRoomFront
+npx create-react-app khosuRoom-front
+clear
+npx create-react-app KhosuRoomFront
+npx create-react-app khosuroomfront
+npm create vite@latest
+npm create vite@latest
+npm create vite@latest
+npm i
+clear
+npm create vite@latest
+npm create vite@latest
+npm install
+cd KhosuRoom.Frontend
+npm i
+npm run dev
+cd Desktop
+npm create vite@latest KhosuRoom.Frontend
+cd desktop
+npm create vite@latest
+git init
+git add .
+git show --no-color 82d9b668acd9946ff0c5044ae2f5fc638b3c7571
+cat /workspace/KhosuRoom/full_last_commit.diff

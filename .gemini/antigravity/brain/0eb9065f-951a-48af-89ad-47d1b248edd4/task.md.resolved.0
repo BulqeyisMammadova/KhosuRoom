@@ -1,0 +1,16 @@
+# Chat System Fix and Analysis
+
+- [ ] Investigate Backend Chat Implementation
+  - [ ] Analyze GroupChatHub
+  - [ ] Analyze ChatController
+  - [ ] Analyze ChatService
+- [ ] Investigate Frontend Chat Implementation
+  - [ ] Locate frontend chat components
+  - [ ] Find the disconnection/issue point
+- [ ] Fix Chat System Problem
+  - [ ] Identify root cause
+  - [ ] Apply fix
+- [ ] Analyze overall backend vs frontend progress
+  - [ ] Review backend endpoints and models
+  - [ ] Review frontend pages and components
+  - [ ] Summarize remaining work

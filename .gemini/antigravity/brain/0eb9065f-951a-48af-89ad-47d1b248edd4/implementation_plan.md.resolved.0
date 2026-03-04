@@ -1,0 +1,66 @@
+# Frontend UI Rewrite Plan (Google Classroom Style)
+
+## Goal Description
+The user wants to completely rewrite the frontend UI of the KhosuRoom application to closely resemble **Google Classroom**. The new UI must be highly aesthetic, modern, and split into smaller, manageable sub-pages and components instead of huge monolithic files ([TeacherDashboardPage](file:///c:/Users/Balqeyis/Desktop/KhosuRoom/KhosuRoom_Front/src/pages/TeacherDashboardPage.jsx#45-1107) and [StudentDashboardPage](file:///c:/Users/Balqeyis/Desktop/KhosuRoom/KhosuRoom_Front/src/pages/StudentDashboardPage.jsx#32-811) currently have ~800+ lines each). The backend must remain **untouched**.
+
+## Proposed Changes
+We will adopt a modular architecture using React Router's nested routes to split the dashboards into sub-pages (e.g., `/teacher/groups`, `/teacher/group/:id/stream`, `/teacher/group/:id/classwork`, etc.). We will use modern CSS (or add TailwindCSS if the user prefers, though the prompt encourages Vanilla CSS unless requested) to build a "Google Classroom" Material-style aesthetic.
+
+### 1. File Structure Refactoring
+
+#### [NEW] `src/components/common/`
+Create reusable UI components like buttons, input fields, cards, tabs, and modals to maintain visual consistency.
+- `Card.jsx`, `Button.jsx`, `Input.jsx`, `Tabs.jsx`, `Modal.jsx`, `Avatar.jsx`
+
+#### [NEW] `src/components/layout/`
+Create consistent layouts with a top navigation bar and a side drawer (sidebar) similar to Google Classroom.
+- `MainLayout.jsx` (Top navbar + Sidebar)
+- `Header.jsx`
+- `Sidebar.jsx`
+
+#### [DELETE] [src/pages/TeacherDashboardPage.jsx](file:///c:/Users/Balqeyis/Desktop/KhosuRoom/KhosuRoom_Front/src/pages/TeacherDashboardPage.jsx)
+#### [DELETE] [src/pages/StudentDashboardPage.jsx](file:///c:/Users/Balqeyis/Desktop/KhosuRoom/KhosuRoom_Front/src/pages/StudentDashboardPage.jsx)
+
+#### [NEW] `src/pages/teacher/` & `src/pages/student/`
+Break the monolithic dashboards into sub-pages using React Router nested routes.
+- `GroupsListPage.jsx` (Shows grid of class cards like Google Classroom home)
+- `GroupLayout.jsx` (Layout wrapper for a single class, containing tabs: Stream, Classwork, People, Grades)
+- `StreamTab.jsx` (For group chat/announcements)
+- `ClassworkTab.jsx` (For Assignment CRUD and submissions)
+- `PeopleTab.jsx` (List of teachers and classmates)
+- `GradesTab.jsx` (For Teacher to grade submissions, or Student to view their attendance/grades)
+
+### 2. Design System & Theming
+Update [index.css](file:///c:/Users/Balqeyis/Desktop/KhosuRoom/KhosuRoom_Front/src/index.css) to introduce css-variables for a coherent theme matching Google Classroom (Material Design 3 style).
+- **Colors**: Primary Blue (#1a73e8), Surface White, Background Gray (#f8f9fa), Text Dark (#3c4043).
+- **Typography**: `Inter` or `Roboto` font.
+- **Components**: Elevated cards with soft box-shadows, rounded corners (`8px`), borderless inputs with bottom outlines or soft gray fills.
+
+### 3. Routing Update
+Update [App.jsx](file:///c:/Users/Balqeyis/Desktop/KhosuRoom/KhosuRoom_Front/src/App.jsx) to configure nested routes for the new pages.
+```jsx
+<Route path="/teacher" element={<MainLayout role="Teacher" />}>
+    <Route index element={<GroupsListPage />} />
+    <Route path="class/:id" element={<GroupLayout />}>
+        <Route path="stream" element={<StreamTab />} />
+        <Route path="classwork" element={<ClassworkTab />} />
+        <Route path="people" element={<PeopleTab />} />
+        <Route path="grades" element={<GradesTab />} />
+    </Route>
+</Route>
+```
+
+## User Review Required
+> [!IMPORTANT]
+> Since we use Vanilla CSS by default as per guidelines, I will create a highly polished custom CSS framework in [index.css](file:///c:/Users/Balqeyis/Desktop/KhosuRoom/KhosuRoom_Front/src/index.css) replicating Material Design (Google Classroom style). Let me know if you would prefer me to install TailwindCSS or Material-UI (MUI) libraries instead to speed this up, or if custom Vanilla CSS is perfect.
+
+## Verification Plan
+
+### Manual Verification
+1. Run the frontend (`npm run dev`) and log in as a Teacher and a Student.
+2. Verify the initial view is a grid of Class Cards.
+3. Click on a Class Card and verify navigation to the `Stream` tab.
+4. Test real-time Group Chat within the `Stream` tab.
+5. Test creating an assignment (Teacher) under the `Classwork` tab.
+6. Test submitting an assignment (Student) under the `Classwork` tab.
+7. Verify visually that it looks like Google Classroom (Clean header, side menu, tab navigation inside a class).

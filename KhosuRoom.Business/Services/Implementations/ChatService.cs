@@ -149,6 +149,7 @@ internal class ChatService : IChatService
             .Skip((page - 1) * pageSize)
             .Take(pageSize)
             .ToListAsync();
+
         return new ChatPageDto
         {
             TotalCount = total,

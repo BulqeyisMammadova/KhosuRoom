@@ -345,7 +345,6 @@ C:\Users\Balqeyis\Desktop\KhosuRoom\KhosuRoom.Presentation\obj\Debug\net8.0\stat
 C:\Users\Balqeyis\Desktop\KhosuRoom\KhosuRoom.Presentation\obj\Debug\net8.0\staticwebassets.build.json.cache
 C:\Users\Balqeyis\Desktop\KhosuRoom\KhosuRoom.Presentation\obj\Debug\net8.0\staticwebassets.development.json
 C:\Users\Balqeyis\Desktop\KhosuRoom\KhosuRoom.Presentation\obj\Debug\net8.0\staticwebassets.build.endpoints.json
-C:\Users\Balqeyis\Desktop\KhosuRoom\KhosuRoom.Presentation\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 C:\Users\Balqeyis\Desktop\KhosuRoom\KhosuRoom.Presentation\obj\Debug\net8.0\KhosuRoo.00EC2B3B.Up2Date
 C:\Users\Balqeyis\Desktop\KhosuRoom\KhosuRoom.Presentation\obj\Debug\net8.0\KhosuRoom.Presentation.dll
 C:\Users\Balqeyis\Desktop\KhosuRoom\KhosuRoom.Presentation\obj\Debug\net8.0\refint\KhosuRoom.Presentation.dll

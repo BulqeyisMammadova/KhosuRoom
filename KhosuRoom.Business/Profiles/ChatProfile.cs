@@ -3,7 +3,7 @@ using KhosuRoom.Business.Dtos.ChatDtos;
 
 namespace KhosuRoom.Business.Profiles;
 
-public class ChatProfile :Profile
+public class ChatProfile : Profile
 {
     public ChatProfile()
     {
@@ -11,9 +11,13 @@ public class ChatProfile :Profile
 
         CreateMap<ChatMessage, ChatMessageDto>()
             .ForMember(d => d.SenderName, o => o.MapFrom(s =>
-                string.IsNullOrWhiteSpace($"{s.Sender.FirstName} {s.Sender.LastName}".Trim())
-                    ? (s.Sender.UserName ?? "User")
-                    : $"{s.Sender.FirstName} {s.Sender.LastName}".Trim()
+                s.Sender != null
+                    ? (!string.IsNullOrWhiteSpace((s.Sender.FirstName + " " + s.Sender.LastName).Trim())
+                        ? (s.Sender.FirstName + " " + s.Sender.LastName).Trim()
+                        : (!string.IsNullOrWhiteSpace(s.Sender.UserName)
+                            ? s.Sender.UserName
+                            : "User"))
+                    : "User"
             ))
             .ForMember(d => d.RepliedMessageText, o => o.MapFrom(s =>
                 s.ReplyToMessage == null ? null :
@@ -23,5 +27,3 @@ public class ChatProfile :Profile
             ));
     }
 }
-
-

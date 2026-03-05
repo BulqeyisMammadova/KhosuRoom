@@ -19,14 +19,16 @@ internal class NotificationService : INotificationService
     private readonly IHttpContextAccessor _http;
     private readonly IMapper _mapper;
     private readonly IEmailService _emailService;
+    private readonly IEmailTemplateService _emailTemplateService;
     private readonly UserManager<AppUser> _userManager;
 
-    public NotificationService(INotificationRepository notificationRepository, IHttpContextAccessor http, IMapper mapper, IEmailService emailService, UserManager<AppUser> userManager)
+    public NotificationService(INotificationRepository notificationRepository, IHttpContextAccessor http, IMapper mapper, IEmailService emailService, IEmailTemplateService emailTemplateService, UserManager<AppUser> userManager)
     {
         _notificationRepository = notificationRepository;
         _http = http;
         _mapper = mapper;
         _emailService = emailService;
+        _emailTemplateService = emailTemplateService;
         _userManager = userManager;
     }
 
@@ -115,7 +117,7 @@ internal class NotificationService : INotificationService
 
         await _notificationRepository.SaveChangesAsync();
 
-       
+
         string? replyToEmail = null;
         string? replyToName = null;
 
@@ -130,7 +132,7 @@ internal class NotificationService : INotificationService
             replyToName = sender?.UserName;
         }
 
-        
+
         var toEmails = await _userManager.Users
             .Where(u => ids.Contains(u.Id) && u.Email != null)
             .Select(u => u.Email!)
@@ -138,26 +140,14 @@ internal class NotificationService : INotificationService
 
         if (toEmails.Count == 0) return;
 
-        
         foreach (var toEmail in toEmails)
         {
             try
             {
                 var subject = $"KhosuRoom: {title}";
 
-                var senderLine =
-                    (!string.IsNullOrWhiteSpace(replyToName) || !string.IsNullOrWhiteSpace(replyToEmail))
-                    ? $"<p><b>Sent by:</b> {replyToName ?? "Teacher"} {(string.IsNullOrWhiteSpace(replyToEmail) ? "" : $"({replyToEmail})")}</p>"
-                    : "";
-
-               
-
-                var body = $@"
-<div style='font-family: Arial, sans-serif;'>
-    <h3>{title}</h3>
-    <p>{message}</p>
-    {senderLine}
-</div>";
+                // Build HTML body via the template service
+                var body = _emailTemplateService.BuildNotificationEmail(title, message, replyToName, redirectUrl);
 
                 await _emailService.SendEmailAsync(
                     toEmail,
@@ -169,7 +159,7 @@ internal class NotificationService : INotificationService
             }
             catch
             {
-               
+                // swallow; logging can be added later
             }
         }
     }

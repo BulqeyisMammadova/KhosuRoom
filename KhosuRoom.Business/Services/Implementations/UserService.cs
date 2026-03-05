@@ -15,12 +15,14 @@ internal class UserService : IUserService
     private readonly UserManager<AppUser> _userManager;
     private readonly IMapper _mapper;
     private readonly ICloudinaryService _cloudinaryService;
+    private readonly IEmailService _emailService; // new dependency
 
-    public UserService(UserManager<AppUser> userManager, IMapper mapper, ICloudinaryService cloudinaryService)
+    public UserService(UserManager<AppUser> userManager, IMapper mapper, ICloudinaryService cloudinaryService, IEmailService emailService)
     {
         _userManager = userManager;
         _mapper = mapper;
         _cloudinaryService = cloudinaryService;
+        _emailService = emailService;
     }
 
     private static string Normalize(string s)
@@ -65,8 +67,6 @@ internal class UserService : IUserService
     
     public async Task<ResultDto<UserGetDto>> CreateUserAsync(AdminCreateUserDto dto, GroupRole role)
     {
-        
-
         var user = _mapper.Map<AppUser>(dto);
 
         user.UserName = await GenerateUniqueUserNameAsync(dto.FirstName, dto.LastName);
@@ -83,6 +83,30 @@ internal class UserService : IUserService
         var addRole = await _userManager.AddToRoleAsync(user, role.ToString());
         if (!addRole.Succeeded)
             throw new BadRequestException(string.Join(" | ", addRole.Errors.Select(e => e.Description)));
+
+        // send welcome email with default password (do not fail creation if email fails)
+        if (!string.IsNullOrWhiteSpace(user.Email))
+        {
+            try
+            {
+                var subject = "Welcome to KhosuRoom";
+                var body = $@"
+<div style='font-family: Arial, sans-serif;'>
+  <h3>Welcome, {user.FirstName} {user.LastName}!</h3>
+  <p>Your account has been created.</p>
+  <p><b>Username:</b> {user.UserName}</p>
+  <p><b>Email:</b> {user.Email}</p>
+  <p><b>Temporary password:</b> <code>{DefaultTempPassword}</code></p>
+  <p>Please sign in and change your password as soon as possible.</p>
+</div>";
+
+                await _emailService.SendEmailAsync(user.Email, subject, body);
+            }
+            catch
+            {
+                // follow existing project pattern — swallow email errors so user creation is not rolled back
+            }
+        }
 
         var resultDto = _mapper.Map<UserGetDto>(user);
         resultDto.Roles = await _userManager.GetRolesAsync(user);

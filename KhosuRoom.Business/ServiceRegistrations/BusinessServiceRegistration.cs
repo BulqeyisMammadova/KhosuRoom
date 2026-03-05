@@ -80,6 +80,7 @@ public static class BusinessServiceRegistration
         services.AddScoped<IAttendanceService, AttendanceService>();
         services.AddScoped<INotificationService, NotificationService>();
         services.AddScoped<IEmailService, EmailService>();
+        services.AddScoped<IEmailTemplateService, EmailTemplateService>();
         services.AddScoped<IChatService, ChatService>();
     }
 }

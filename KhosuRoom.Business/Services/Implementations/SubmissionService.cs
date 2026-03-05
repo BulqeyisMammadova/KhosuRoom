@@ -196,6 +196,7 @@ internal class SubmissionService : ISubmissionService
 
         submission.Grade = dto.Grade;
         submission.Feedback = dto.Feedback;
+        submission.Status = SubmissionStatus.Submitted;
         submission.GradedByTeacherId = teacherId;
         submission.GradedAt = DateTime.UtcNow;
 
@@ -214,5 +215,23 @@ internal class SubmissionService : ISubmissionService
 
 
         return new ResultDto();
+    }
+
+    public async Task<ResultDto<SubmissionGetDto>> GetByIdAsync(Guid submissionId)
+    {
+        var teacherId = CurrentUserId();
+
+        var submission = await _submissionRepo.GetAll()
+            .Include(s => s.Attachments)
+            .Include(s => s.Assignment)
+            .AsNoTracking()
+            .FirstOrDefaultAsync(s => s.Id == submissionId);
+
+        if (submission is null) throw new NotFoundExceptions("Submission not found");
+        if (submission.Assignment is null) throw new NotFoundExceptions("Assignment not found");
+
+        await EnsureTeacherAsync(submission.Assignment.GroupId, teacherId);
+
+        return new ResultDto<SubmissionGetDto>(_mapper.Map<SubmissionGetDto>(submission));
     }
 }

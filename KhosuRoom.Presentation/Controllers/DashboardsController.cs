@@ -18,8 +18,19 @@ public class DashboardsController : ControllerBase
 
     [HttpGet("assignment/{assignmentId:guid}")]
     public async Task<IActionResult> Assignment(Guid assignmentId)
-        => Ok(await _service.GetAssignmentDashboardAsync(assignmentId));
+    {
+        try
+        {
+            return Ok(await _service.GetAssignmentDashboardAsync(assignmentId));
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, new { error = ex.ToString() });
+        }
+    }
     [HttpGet("student/{groupId:guid}")]
     public async Task<IActionResult> Student(Guid groupId)
     => Ok(await _service.GetStudentDashboardAsync(groupId));
 }
+
+

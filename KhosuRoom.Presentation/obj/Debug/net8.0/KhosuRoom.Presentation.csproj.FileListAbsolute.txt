@@ -354,3 +354,4 @@ C:\Users\Balqeyis\Desktop\KhosuRoom\KhosuRoom.Presentation\obj\Debug\net8.0\ref\
 C:\Users\Balqeyis\Desktop\KhosuRoom\KhosuRoom.Presentation\bin\Debug\net8.0\BouncyCastle.Cryptography.dll
 C:\Users\Balqeyis\Desktop\KhosuRoom\KhosuRoom.Presentation\bin\Debug\net8.0\MailKit.dll
 C:\Users\Balqeyis\Desktop\KhosuRoom\KhosuRoom.Presentation\bin\Debug\net8.0\MimeKit.dll
+C:\Users\Balqeyis\Desktop\KhosuRoom\KhosuRoom.Presentation\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

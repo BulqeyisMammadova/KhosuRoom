@@ -29,7 +29,14 @@ public class SubmissionsController : ControllerBase
     }
     
     [Authorize(Roles = "Teacher")]
+    [HttpGet("{submissionId:guid}")]
+    public async Task<IActionResult> GetById(Guid submissionId)
+    {
+        var result = await _service.GetByIdAsync(submissionId);
+        return Ok(result);
+    }
 
+    [Authorize(Roles = "Teacher")]
     [HttpPost("{submissionId:guid}/grade")]
     public async Task<IActionResult> Grade(Guid submissionId, [FromBody] GradeSubmissionDto dto)
     {
@@ -37,3 +44,4 @@ public class SubmissionsController : ControllerBase
         return Ok(result);
     }
 }
+

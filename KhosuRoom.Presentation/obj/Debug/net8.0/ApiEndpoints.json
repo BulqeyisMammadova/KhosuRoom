@@ -698,6 +698,22 @@
   },
   {
     "ContainingType": "KhosuRoom.Presentation.Controllers.SubmissionsController",
+    "Method": "GetById",
+    "RelativePath": "api/Submissions/{submissionId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "submissionId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "KhosuRoom.Presentation.Controllers.SubmissionsController",
     "Method": "Grade",
     "RelativePath": "api/Submissions/{submissionId}/grade",
     "HttpMethod": "POST",

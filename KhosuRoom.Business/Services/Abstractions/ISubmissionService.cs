@@ -7,9 +7,11 @@ public interface ISubmissionService
 {
     Task<ResultDto> SubmitAsync(SubmissionSubmitFormDto dto);
     Task<ResultDto<SubmissionGetDto>> GetMySubmissionAsync(Guid assignmentId);
+    Task<ResultDto<SubmissionGetDto>> GetByIdAsync(Guid submissionId);
     Task<ResultDto> GradeAsync(Guid submissionId, GradeSubmissionDto dto);
 
 }
+
 
 
     

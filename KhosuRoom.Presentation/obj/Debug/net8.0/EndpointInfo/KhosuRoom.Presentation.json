@@ -181,6 +181,37 @@
         }
       }
     },
+    "/api/AI/generate-tasks": {
+      "post": {
+        "tags": [
+          "AI"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GenerateTasksRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GenerateTasksRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GenerateTasksRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Assignments": {
       "post": {
         "tags": [
@@ -1372,6 +1403,20 @@
             "format": "uuid"
           },
           "text": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "GenerateTasksRequest": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
             "type": "string",
             "nullable": true
           }

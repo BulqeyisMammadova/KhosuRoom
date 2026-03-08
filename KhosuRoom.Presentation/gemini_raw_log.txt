@@ -1,0 +1,2 @@
+1.  **Tapşırıq 1: Cümlənin Analizi və Formatlaşdırılması**
+    Bir C# metodu yazın ki, parametr olaraq bir `string` cümlə qəbul etsin. Metod aşağıdakı əməliyy

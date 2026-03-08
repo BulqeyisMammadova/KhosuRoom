@@ -1,4 +1,4 @@
-﻿namespace KhosuRoom.Business.Dtos.AssignmentDtos;
+namespace KhosuRoom.Business.Dtos.AssignmentDtos;
 
 public class AssignmentGetDto
 {
@@ -8,6 +8,6 @@ public class AssignmentGetDto
     public string Title { get; set; } = null!;
     public string? Description { get; set; }
     public DateTime DueDate { get; set; }
-    public IEnumerable<string> FileUrls { get; set; } = [];
+    public IEnumerable<string> FileUrls { get; set; } = Array.Empty<string>();
     public int SubmissionCount { get; set; }
 }

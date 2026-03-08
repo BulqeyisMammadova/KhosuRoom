@@ -68,6 +68,9 @@ public static class BusinessServiceRegistration
 
     private static void AddScope(IServiceCollection services)
     {
+        // provide HttpClient factory for AI calls
+        services.AddHttpClient();
+
         services.AddScoped<IGroupService, GroupService>();
         services.AddScoped<IAuthService, AuthService>();
         services.AddScoped<IJWTService, JWTService>();
@@ -82,5 +85,8 @@ public static class BusinessServiceRegistration
         services.AddScoped<IEmailService, EmailService>();
         services.AddScoped<IEmailTemplateService, EmailTemplateService>();
         services.AddScoped<IChatService, ChatService>();
+
+        // AI service registration
+        services.AddScoped<IAIService, AIService>();
     }
 }

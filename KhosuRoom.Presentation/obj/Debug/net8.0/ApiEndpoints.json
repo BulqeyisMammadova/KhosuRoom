@@ -106,6 +106,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "KhosuRoom.Presentation.Controllers.AIController",
+    "Method": "GenerateTasks",
+    "RelativePath": "api/AI/generate-tasks",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "KhosuRoom.Presentation.Controllers.GenerateTasksRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "KhosuRoom.Presentation.Controllers.AssignmentsController",
     "Method": "Create",
     "RelativePath": "api/Assignments",

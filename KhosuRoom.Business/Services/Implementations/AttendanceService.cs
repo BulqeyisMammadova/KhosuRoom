@@ -165,6 +165,8 @@ internal class AttendanceService : IAttendanceService
         if (dto?.Students is null || dto.Students.Count == 0)
             throw new NotFoundExceptions("Students list is empty");
 
+        var updatedStudentIds = new List<Guid>();
+
         foreach (var item in dto.Students)
         {
             var studentId = item.StudentId;
@@ -181,31 +183,31 @@ internal class AttendanceService : IAttendanceService
                 };
 
                 await _recordRepo.AddAsync(rec);
-                records.Add(rec); 
+                records.Add(rec);
+                updatedStudentIds.Add(studentId);
             }
-            else
+            else if (rec.Status != item.Status)
             {
                 rec.Status = item.Status;
                 _recordRepo.Update(rec);
+                updatedStudentIds.Add(studentId);
             }
         }
 
         await _recordRepo.SaveChangesAsync();
 
-        var studentIds = dto.Students
-            .Select(x => x.StudentId)
-            .Distinct()
-            .ToList();
-
-        await _notificationService.CreateForUsersAsync(
-            studentIds,
-            "Attendance Updated",
-            $"Attendance for {session.Date:yyyy-MM-dd} has been updated.",
-            NotificationType.AttendanceSaved,
-            session.GroupId,
-            $"/groups/{session.GroupId}/attendance",
-            senderUserId: session.TeacherId
-        );
+        if (updatedStudentIds.Count > 0)
+        {
+            await _notificationService.CreateForUsersAsync(
+                updatedStudentIds.Distinct().ToList(),
+                "Attendance Updated",
+                $"Attendance for {session.Date:yyyy-MM-dd} has been updated.",
+                NotificationType.AttendanceSaved,
+                session.GroupId,
+                $"/groups/{session.GroupId}/attendance",
+                senderUserId: session.TeacherId
+            );
+        }
 
         return new ResultDto();
     }

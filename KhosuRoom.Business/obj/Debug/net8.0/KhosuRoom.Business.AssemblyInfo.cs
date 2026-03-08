@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("KhosuRoom.Business")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5e12677c774396621142a00b0a3e05d862940984")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+23e61f648f62e930e6c239ce6c1ca8e15ddcea4e")]
 [assembly: System.Reflection.AssemblyProductAttribute("KhosuRoom.Business")]
 [assembly: System.Reflection.AssemblyTitleAttribute("KhosuRoom.Business")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

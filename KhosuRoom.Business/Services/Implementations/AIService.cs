@@ -22,45 +22,44 @@ internal class AIService : IAIService
     public async Task<List<string>> GenerateSimilarTasksAsync(string assignmentTitle, string? assignmentDescription)
     {
         var prompt = $"""
-            Sən bir müəllim köməkçisisən. Aşağıdakı tapşırığa əsasən 1 oxşar, lakin fərqli tapşırıq yaz.
-            Tapşırıq mütləq detallı və aydın olsun.
+            Sən yaradıcı bir müəllimsən. Aşağıdakı tapşırığa əsasən oxşar məzmunda, lakin daha maraqlı və fərqli 1 yeni tapşırıq yaz.
+            Tapşırıq çox uzun və ya çox qısa olmamalıdır (normal ölçüdə olsun).
+            Tapşırığın əsas məğzini və tələbləri qısaca izah et, lakin detallara çox girmə.
 
             Tapşırıq başlığı: {assignmentTitle}
             {(string.IsNullOrWhiteSpace(assignmentDescription) ? "" : $"Tapşırıq izahı: {assignmentDescription}")}
 
             Diqqət: Nömrələmə, başqa heç bir məlumat, salamlaşma və ya əlavə söz yazma. 
-            Birbaşa olaraq yalnız tapşırığın tam mətnini qaytar.
+            Birbaşa olaraq yalnız tapşırığın qısa mətnini qaytar.
             """;
 
-        var url = $"https://generativelanguage.googleapis.com/v1beta/models/{_model}:generateContent?key={_apiKey}";
+        var url = "https://openrouter.ai/api/v1/chat/completions";
 
         var requestBody = new
         {
-            contents = new[]
+            model = _model,
+            messages = new[]
             {
-                new { parts = new[] { new { text = prompt } } }
+                new { role = "user", content = prompt }
             },
-            generationConfig = new
-            {
-                temperature = 0.7,
-                maxOutputTokens = 1500
-            }
+            temperature = 0.7,
+            max_tokens = 1500
         };
 
         var json = JsonSerializer.Serialize(requestBody);
         var content = new StringContent(json, Encoding.UTF8, "application/json");
 
-        _httpClient.DefaultRequestHeaders.Authorization = null;
+        _httpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", _apiKey);
 
         var response = await _httpClient.PostAsync(url, content);
 
         if (!response.IsSuccessStatusCode)
         {
             if (response.StatusCode == HttpStatusCode.TooManyRequests)
-                throw new InvalidOperationException("Gemini API limiti dolub (429). Bir az gözləyib yenidən cəhd edin.");
+                throw new InvalidOperationException("OpenRouter API limiti dolub (429). Bir az gözləyib yenidən cəhd edin.");
 
             if (response.StatusCode == HttpStatusCode.Unauthorized || response.StatusCode == HttpStatusCode.Forbidden)
-                throw new InvalidOperationException("Gemini API key-i yanlışdır. appsettings.json-dakı AI:ApiKey-i yoxlayın.");
+                throw new InvalidOperationException("OpenRouter API key-i yanlışdır. appsettings.json-dakı AI:ApiKey-i yoxlayın.");
 
             throw new InvalidOperationException($"AI sorğusu uğursuz oldu ({(int)response.StatusCode}). Bir az sonra yenidən cəhd edin.");
         }
@@ -69,10 +68,9 @@ internal class AIService : IAIService
         using var doc = JsonDocument.Parse(responseJson);
 
         var text = doc.RootElement
-            .GetProperty("candidates")[0]
+            .GetProperty("choices")[0]
+            .GetProperty("message")
             .GetProperty("content")
-            .GetProperty("parts")[0]
-            .GetProperty("text")
             .GetString() ?? "";
 
         // Markdown ulduzlarını təmizləyirik (bəzən qalın yazmaq üçün istifadə edir)

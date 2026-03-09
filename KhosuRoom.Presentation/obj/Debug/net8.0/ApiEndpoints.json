@@ -481,6 +481,59 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "KhosuRoom.Presentation.Controllers.GoogleCalendarController",
+    "Method": "GetAuthUrl",
+    "RelativePath": "api/GoogleCalendar/auth-url/{groupId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "groupId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "KhosuRoom.Presentation.Controllers.GoogleCalendarController",
+    "Method": "Callback",
+    "RelativePath": "api/GoogleCalendar/callback",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "code",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "state",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "KhosuRoom.Presentation.Controllers.GoogleCalendarController",
+    "Method": "CreateOrAuth",
+    "RelativePath": "api/GoogleCalendar/create-or-auth/{groupId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "groupId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "KhosuRoom.Presentation.Controllers.GroupMembersController",
     "Method": "GetMembers",
     "RelativePath": "api/GroupMembers/{groupId}/members",

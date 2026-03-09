@@ -88,5 +88,8 @@ public static class BusinessServiceRegistration
 
         // AI service registration
         services.AddScoped<IAIService, AIService>();
+
+        // Google Calendar Service
+        services.AddScoped<IGoogleCalendarService, GoogleCalendarService>();
     }
 }

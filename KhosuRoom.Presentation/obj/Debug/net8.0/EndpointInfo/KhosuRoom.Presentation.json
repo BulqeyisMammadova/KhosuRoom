@@ -798,6 +798,80 @@
         }
       }
     },
+    "/api/GoogleCalendar/create-or-auth/{groupId}": {
+      "get": {
+        "tags": [
+          "GoogleCalendar"
+        ],
+        "parameters": [
+          {
+            "name": "groupId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/GoogleCalendar/auth-url/{groupId}": {
+      "get": {
+        "tags": [
+          "GoogleCalendar"
+        ],
+        "parameters": [
+          {
+            "name": "groupId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/GoogleCalendar/callback": {
+      "get": {
+        "tags": [
+          "GoogleCalendar"
+        ],
+        "parameters": [
+          {
+            "name": "code",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "state",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/GroupMembers/{groupId}/members": {
       "get": {
         "tags": [

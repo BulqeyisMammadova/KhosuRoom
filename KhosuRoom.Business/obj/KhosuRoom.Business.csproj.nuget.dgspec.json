@@ -73,6 +73,10 @@
               "target": "Package",
               "version": "[11.3.1, )"
             },
+            "Google.Apis.Calendar.v3": {
+              "target": "Package",
+              "version": "[1.73.0.4063, )"
+            },
             "MailKit": {
               "target": "Package",
               "version": "[4.15.0, )"

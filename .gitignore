@@ -45,6 +45,6 @@ Thumbs.db
 
 /KhosuRoom.DataAccess/Migrations/20260212214244_CreateDataBaseNew.cs
 # App settings (secret configs)
+# secrets
+appsettings.json
 appsettings.Development.json
-appsettings.Local.json
-appsettings.Production.json
